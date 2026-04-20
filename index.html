@@ -1,23 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <title>Alquiler de barcos</title>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mambo Boats</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
-<body style="font-family: Arial; text-align: center; padding: 40px;">
 
-  <h1>Alquiler de Barcos</h1>
-  <p>Disfruta del mar con nosotros</p>
+<body>
 
-  <img src="https://via.placeholder.com/400" style="width:100%; max-width:400px;">
+<header class="header">
+  <h1>Mambo Boats</h1>
 
-  <br><br>
+  <div class="lang">
+    <button onclick="setLang('es')">ES</button>
+    <button onclick="setLang('en')">EN</button>
+  </div>
+</header>
 
-  <a href="https://TU-LINK-NAUTIC-MANAGER.com">
-    <button style="padding:15px 25px; font-size:18px;">
-      Reservar ahora
-    </button>
+<section class="hero">
+  <h2 data-es="Alquiler de barcos" data-en="Boat Rentals"></h2>
+  <p data-es="Disfruta del mar con nosotros" data-en="Enjoy the sea with us"></p>
+
+  <a href="https://TU-LINK-NAUTIC.com">
+    <button class="cta" data-es="Reservar ahora" data-en="Book now"></button>
   </a>
+</section>
+
+<section class="content">
+  <h3 data-es="Experiencias únicas" data-en="Unique experiences"></h3>
+  <p data-es="Salidas privadas, eventos y más"
+     data-en="Private trips, events and more"></p>
+</section>
+
+<!-- JS -->
+<script src="script.js"></script>
 
 </body>
 </html>
