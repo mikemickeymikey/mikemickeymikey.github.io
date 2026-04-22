@@ -121,3 +121,15 @@ h1, h2, h3 {
     text-decoration: none;
     transform: scale(1.1);
 }
+
+.lang-switch span {
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    opacity: 0.7;
+    transition: all 0.2s ease;
+}
+
+.lang-switch span:hover {
+    opacity: 1;
+}

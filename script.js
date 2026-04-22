@@ -4,4 +4,4 @@ function setLang(lang) {
   });
 }
 
-setLang("es");
+setLang("ca");
