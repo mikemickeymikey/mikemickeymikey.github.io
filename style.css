@@ -73,7 +73,7 @@ h3 {
     background-size: cover;
     background-position: center;
     position: relative;
-    padding-top: 170px;
+    padding-top: 14rem;
 }
 
 /* overlay */
@@ -166,7 +166,7 @@ h3 {
 
 @media (max-width: 991px) {
     .custom-header {
-        padding: 12px 0;
+        padding: 0px;
     }
 
     .logo {
@@ -187,15 +187,21 @@ h3 {
         font-size: 20px;
     }
 
+    .hero{
+        padding-top: 22rem;
+    }
+
     .hero h1 {
-        font-size: 38px;
+        font-size: 26px;
+        margin-bottom: 0px !important;
     }
 
     .hero-btn {
         font-size: 22px;
+        margin-top: 0px;
     }
 
-    .hero .container {
-        transform: translateY(-200px);
+    .custom-toggler{
+        border: none !important;
     }
 }
