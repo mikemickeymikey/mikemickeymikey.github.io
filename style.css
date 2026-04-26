@@ -123,9 +123,10 @@ h1, h2, h3 {
 }
 
 .lang-switch span {
+    font-family: 'Tanker';
     color: white;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 18px;
     opacity: 0.7;
     transition: all 0.2s ease;
 }
