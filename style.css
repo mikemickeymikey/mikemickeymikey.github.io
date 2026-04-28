@@ -6,6 +6,10 @@
     font-style: normal;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Tanker', sans-serif;
 }
@@ -101,29 +105,25 @@ h3 {
 }
 
 .hero-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+    display: inline-block;
+
     color: white;
     text-decoration: none;
-    font-size: 25px;
+    font-size: clamp(0.8rem, 2vw, 1.1rem);
     font-weight: 500;
-    line-height: 1;
-    transition: transform 0.3s ease, font-size 0.3s ease;
-}
 
-.hero-btn i {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 1;
+    padding: 12px 30px;
+    border: 2px solid white;
+    border-radius: 30px;
+
+    transition: all 0.3s ease;
 }
 
 .hero-btn:hover {
-    color: white;
-    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #28357a;
     transform: scale(1.1);
+    text-decoration: none;
 }
 
 .lang-switch span {
@@ -164,6 +164,10 @@ h3 {
     background-color: #28357a;
 }
 
+#nauticmanager {
+    scroll-margin-top: 5rem;
+}
+
 @media (max-width: 991px) {
     .custom-header {
         padding: 0px;
@@ -187,7 +191,7 @@ h3 {
         font-size: 20px;
     }
 
-    .hero{
+    .hero {
         padding-top: 13rem;
     }
 
@@ -201,7 +205,7 @@ h3 {
         margin-top: 0px;
     }
 
-    .custom-toggler{
+    .custom-toggler {
         border: none !important;
     }
 }
