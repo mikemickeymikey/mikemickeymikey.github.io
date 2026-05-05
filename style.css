@@ -70,7 +70,7 @@ h3 {
 
 .hero {
     height: 100vh;
-    background-image: url("img/portada.jpg");
+    background-image: url("img/portada.png");
     background-size: cover;
     background-position: center;
     position: relative;
@@ -89,7 +89,6 @@ h3 {
 .hero .container {
     position: relative;
     z-index: 1;
-    transform: translateY(-300px);
 }
 
 .hero h1 {
@@ -205,5 +204,13 @@ h3 {
 
     .custom-toggler {
         border: none !important;
+    }
+
+    .titol {
+        transform: translateY(-3rem);
+    }
+
+    .subtitol {
+        transform: translateY(11rem);
     }
 }
