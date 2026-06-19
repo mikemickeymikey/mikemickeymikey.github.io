@@ -1,323 +1,1368 @@
+/* ═══════════════════════════════════════════════════════════
+   MAMBO BOATS — style.css
+   Brand: Tanker (headings) · Montserrat (body) · #28357a
+   ═══════════════════════════════════════════════════════════ */
+
 @font-face {
     font-family: 'Tanker';
     src: url('fonts/Tanker-Regular.woff2') format('woff2'),
-        url('fonts/Tanker-Regular.woff') format('woff');
+         url('fonts/Tanker-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
-html {
-    scroll-behavior: smooth;
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --brand:    #28357a;
+    --brand-dk: #1b2459;
+    --dark:     #05091F;
+    --darker:   #0d0b3a;
+    --accent:   #EAF1FF;
+    --muted:    rgba(234,241,255,0.55);
+    --pink:     #F472B6;
+    --green:    #25D366;
 }
+
+html { scroll-behavior: smooth; }
 
 body {
-    font-family: 'Tanker', sans-serif;
+    font-family: 'Montserrat', system-ui, sans-serif;
+    background: var(--dark);
+    color: var(--accent);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
 }
 
-h1,
-h2,
-h3 {
+h1, h2, h3 {
     font-family: 'Tanker', sans-serif;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
+    font-style: normal;
 }
+
+a { text-decoration: none; color: inherit; }
+
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-thumb { background: #89B4FF; }
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+    from { transform: scale(1.06); }
+    to   { transform: scale(1); }
+}
+@keyframes ticker {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+/* ── HEADER ─────────────────────────────────────────────── */
 
 .custom-header {
-    position: absolute;
-    width: 100%;
-    z-index: 10;
-    background-color: #28357a;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    min-height: 68px;
+    display: flex;
+    align-items: flex-start;
+    transition: background 0.35s, box-shadow 0.35s;
+    background: transparent;
 }
 
-.custom-header::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -30px;
-    /* fade */
-    width: 100%;
-    height: 30px;
-
-    background: linear-gradient(to bottom,
-            rgba(40, 53, 122, 1),
-            rgba(40, 53, 122, 0));
-
-    pointer-events: none;
+.custom-header.scrolled {
+    background: rgba(5, 9, 31, 0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 1px 0 rgba(137, 180, 255, 0.1);
 }
 
 .logo {
-    max-height: 70px;
+    max-height: 52px;
     width: auto;
     object-fit: contain;
 }
 
-.phone {
-    color: white;
+.nav-link-custom {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 11px;
     font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(234, 241, 255, 0.75);
+    transition: color 0.2s;
+    white-space: nowrap;
+}
+.nav-link-custom:hover { color: #fff; }
+.nav-link-pink { color: var(--pink) !important; }
+
+/* Lang switcher */
+.lang-switch { }
+.lang-btn {
     font-family: 'Tanker', sans-serif;
-    letter-spacing: 2px;
-    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    padding: 4px 9px;
+    background: transparent;
+    color: rgba(220, 240, 255, 0.6);
+    border: 1px solid rgba(137, 180, 255, 0.18);
+    cursor: pointer;
+    transition: all 0.2s;
 }
-
-.icon {
-    font-size: 22px;
-    color: #bfbfbf;
-    /* gris */
-}
-
-.icon:hover {
+.lang-btn:first-child { border-radius: 3px 0 0 3px; }
+.lang-btn:last-child  { border-radius: 0 3px 3px 0; }
+.lang-btn:not(:last-child) { border-right: none; }
+.lang-btn.active, .lang-btn:hover {
+    background: var(--brand);
     color: white;
+    border-color: var(--brand);
 }
+
+.nav-phone {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: rgba(234, 241, 255, 0.7);
+    white-space: nowrap;
+    transition: color 0.2s;
+}
+.nav-phone:hover { color: white; }
+
+.nav-icon {
+    font-size: 18px;
+    color: rgba(234, 241, 255, 0.6);
+    transition: color 0.2s;
+}
+.nav-icon:hover { color: white; }
+
+.btn-reservar {
+    font-family: 'Tanker', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: white;
+    background: var(--brand);
+    padding: 9px 20px;
+    border-radius: 3px;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+.btn-reservar:hover { background: var(--brand-dk); color: white; }
+
+/* Mobile navbar collapse */
+.navbar-collapse { background: transparent; }
+
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background: rgba(5, 9, 31, 0.97);
+        backdrop-filter: blur(20px);
+        padding: 20px 24px 24px;
+        border-radius: 0 0 12px 12px;
+        margin-top: 4px;
+    }
+    .logo { max-height: 42px; }
+}
+
+.custom-toggler { border: none !important; box-shadow: none !important; }
+.custom-toggler:focus { box-shadow: none !important; }
+.navbar-toggler-icon { filter: invert(1); }
+.navbar { padding: 0; width: 100%; min-height: 68px; }
+.navbar-brand { padding: 0; }
+
+/* ── HERO ────────────────────────────────────────────────── */
 
 .hero {
-    height: 100vh;
-    background-image: url("img/portada.png");
-    background-size: cover;
-    background-position: center;
     position: relative;
-    padding-top: 14rem;
+    height: 100svh;
+    min-height: 580px;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
 }
 
-/* overlay */
-.hero::before {
-    content: "";
+.hero-img-wrap {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.4);
+    animation: scaleIn 2s ease forwards;
 }
 
-/* asegurar que el contenido esté por encima */
-.hero .container {
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+    display: block;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(4, 10, 40, 0.18) 0%,
+        rgba(4, 10, 40, 0.04) 25%,
+        rgba(4, 10, 40, 0.55) 58%,
+        rgba(4, 10, 40, 0.95) 100%
+    );
+}
+
+.hero-content {
     position: relative;
-    z-index: 1;
+    z-index: 2;
+    width: 100%;
+    padding: 0 clamp(20px, 6vw, 96px) clamp(52px, 7vh, 88px);
 }
 
-.hero h1 {
-    font-size: 60px;
-    font-weight: bold;
+.hero-label-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    animation: fadeUp 0.7s 0.3s both;
 }
 
-.hero p {
+.hero-label-line {
+    width: 24px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.4);
+    flex-shrink: 0;
+}
+
+.hero-label {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.hero-h1 {
+    font-family: 'Tanker', sans-serif;
+    font-size: clamp(52px, 9vw, 116px);
+    font-weight: normal;
+    color: white;
+    line-height: 0.95;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+    animation: fadeUp 0.8s 0.5s both;
+    text-shadow: 0 2px 48px rgba(0, 0, 0, 0.15);
+}
+
+.hero-sub {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: clamp(16px, 2.5vw, 28px);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 20px;
+    animation: fadeUp 0.8s 0.65s both;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 6px 14px;
+    border-radius: 3px;
+    margin-bottom: 32px;
+    animation: fadeUp 0.7s 0.8s both;
+}
+
+.hero-badge span {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.hero-cta-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    animation: fadeUp 0.8s 0.95s both;
+}
+
+.btn-wa-hero {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Tanker', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: white;
+    background: var(--green);
+    padding: 15px 28px;
+    border-radius: 3px;
+    transition: background 0.2s;
+}
+.btn-wa-hero:hover { background: #1DB954; color: white; }
+
+.btn-outline-hero {
+    font-family: 'Tanker', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: white;
+    border: 1.5px solid rgba(255, 255, 255, 0.38);
+    padding: 14px 22px;
+    border-radius: 3px;
+    transition: border-color 0.2s;
+}
+.btn-outline-hero:hover { border-color: rgba(255, 255, 255, 0.85); color: white; }
+
+/* ── TICKER ──────────────────────────────────────────────── */
+
+.ticker-wrap {
+    background: var(--brand);
+    overflow: hidden;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.ticker-track {
+    display: flex;
+    align-items: center;
+    animation: ticker 42s linear infinite;
+    will-change: transform;
+    white-space: nowrap;
+}
+
+.ticker-item {
+    flex-shrink: 0;
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(248, 244, 236, 0.65);
+    padding: 0 40px 0 0;
+}
+
+.ticker-brand {
+    flex-shrink: 0;
+    font-family: 'Tanker', sans-serif;
     font-size: 20px;
+    letter-spacing: 2px;
+    color: white;
+    padding: 0 40px 0 0;
 }
 
-.hero-btn {
-    display: inline-block;
+.ticker-sep {
+    flex-shrink: 0;
+    font-size: 7px;
+    color: rgba(248, 244, 236, 0.25);
+    padding: 0 28px;
+}
 
+/* ── SECTIONS ────────────────────────────────────────────── */
+
+.section-dark {
+    padding: clamp(64px, 9vw, 112px) clamp(20px, 5vw, 80px);
+    background: var(--dark);
+}
+
+.section-booking { padding-top: clamp(48px, 6vw, 80px); }
+
+.section-header { margin-bottom: 52px; }
+
+.section-label {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #A09EE8;
+    margin-bottom: 10px;
+    line-height: 1;
+}
+
+.section-h2 {
+    font-family: 'Tanker', sans-serif;
+    font-size: clamp(20px, 3vw, 36px);
+    font-weight: normal;
     color: white;
-    text-decoration: none;
-    font-size: clamp(0.8rem, 2vw, 1.1rem);
+    letter-spacing: 2px;
+    line-height: 1.15;
+}
+
+/* ── BOATS GRID ──────────────────────────────────────────── */
+
+.boats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+@media (max-width: 900px) {
+    .boats-grid { grid-template-columns: 1fr; }
+}
+
+.boat-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s;
+}
+.boat-card:hover { transform: translateY(-3px); }
+
+.boat-img-wrap {
+    aspect-ratio: 4/3;
+    position: relative;
+    overflow: hidden;
+}
+
+.boat-img {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    transition: transform 0.4s ease;
+}
+.boat-card:hover .boat-img { transform: scale(1.04) !important; }
+
+.boat-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 42%, rgba(5, 9, 31, 0.72) 100%);
+    pointer-events: none;
+}
+
+.boat-cap-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(40, 53, 122, 0.88);
+    backdrop-filter: blur(6px);
+    color: rgba(248, 244, 236, 0.95);
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 10px;
     font-weight: 500;
-
-    padding: 12px 30px;
-    border: 2px solid white;
-    border-radius: 30px;
-
-    transition: all 0.3s ease;
+    letter-spacing: 0.06em;
+    padding: 4px 10px;
+    border-radius: 3px;
+    z-index: 2;
 }
 
-.hero-btn:hover {
-    background-color: rgba(255, 255, 255, 0.9);
-    color: #28357a;
-    transform: scale(1.1);
-    text-decoration: none;
+.boat-body {
+    padding: 22px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
-.hero-description {
-    font-size: clamp(1rem, 1.8vw, 1.25rem);
-    font-weight: bold;
-
-    max-width: 50rem;
-
-    margin-left: auto;
-    margin-right: auto;
-
-    line-height: 1.6;
-
-    opacity: 0.9;
+.boat-type {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #A8C8DC;
+    margin-bottom: 6px;
 }
 
-.lang-switch span {
-    font-family: 'Tanker';
+.boat-name {
+    font-family: 'Tanker', sans-serif;
+    font-size: 30px;
+    font-weight: normal;
     color: white;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    line-height: 1.05;
+}
+
+.boat-license-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 14px;
+}
+.boat-license-row i {
+    font-size: 10px;
+    color: rgba(168, 200, 220, 0.7);
+}
+.boat-license-row span {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #A8C8DC;
+}
+
+.boat-desc {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 14.5px;
+    font-weight: 300;
+    color: rgba(248, 244, 236, 0.85);
+    line-height: 1.65;
+    flex: 1;
+    margin-bottom: 18px;
+}
+
+.boat-price-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 12px 0;
+    border-top: 1px solid rgba(220, 240, 255, 0.08);
+    margin-bottom: 16px;
+}
+
+.boat-price {
+    font-family: 'Tanker', sans-serif;
+    font-size: 28px;
+    letter-spacing: 2px;
+    color: var(--accent);
+}
+
+.btn-tarifes {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.45);
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 100px;
+    padding: 5px 12px;
     cursor: pointer;
-    font-size: 18px;
-    opacity: 0.7;
-    transition: all 0.2s ease;
+    transition: all 0.2s;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+.btn-tarifes:hover { color: rgba(255, 255, 255, 0.85); border-color: rgba(255, 255, 255, 0.45); }
+
+.boat-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
 }
 
-.lang-switch span:hover {
-    opacity: 1;
-}
-
-.navbar {
-    padding: 0;
-}
-
-.navbar-brand {
-    padding: 0;
-}
-
-.custom-toggler {
-    border: none;
-    box-shadow: none;
-}
-
-.custom-toggler:focus {
-    box-shadow: none;
-}
-
-.navbar-toggler-icon {
-    filter: invert(1);
-}
-
-.navbar-collapse {
-    background-color: #28357a;
-}
-
-#nauticmanager {
-    scroll-margin-top: 5rem;
-}
-
-.whatsapp-btn {
-    position: fixed;
-
-    bottom: 1.5rem;
-    right: 1.5rem;
-
-    width: clamp(3.5rem, 6vw, 4.5rem);
-    height: clamp(3.5rem, 6vw, 4.5rem);
-
-    background-color: #25D366;
+.btn-wa-boat {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
     color: white;
+    background: var(--green);
+    padding: 11px 10px;
+    border-radius: 3px;
+    transition: background 0.2s;
+}
+.btn-wa-boat:hover { background: #1DB954; color: white; }
 
+.btn-avail {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    padding: 11px 10px;
+    border-radius: 3px;
+    text-align: center;
+    transition: all 0.2s;
+}
+.btn-avail:hover { color: white; border-color: rgba(255, 255, 255, 0.7); background: rgba(255, 255, 255, 0.05); }
+
+/* ── EXPERIENCES ─────────────────────────────────────────── */
+
+.exp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+@media (max-width: 900px) {
+    .exp-grid { grid-template-columns: 1fr; }
+}
+
+.exp-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s;
+}
+.exp-card:hover { transform: translateY(-3px); }
+
+.exp-img-wrap {
+    aspect-ratio: 16/9;
+    position: relative;
+    overflow: hidden;
+}
+
+.exp-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.87) saturate(0.82);
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+.exp-card:hover .exp-img { transform: scale(1.04); filter: brightness(0.95) saturate(0.9); }
+
+.exp-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 38%, rgba(5, 9, 31, 0.68) 100%);
+}
+
+.exp-time-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(40, 53, 122, 0.92);
+    backdrop-filter: blur(8px);
+    color: white;
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    padding: 5px 12px;
+    border-radius: 3px;
+    z-index: 2;
+}
+
+.exp-body {
+    padding: 20px 22px 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.exp-tagline {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #A8C8DC;
+    margin-bottom: 6px;
+}
+
+.exp-name {
+    font-family: 'Tanker', sans-serif;
+    font-size: clamp(26px, 3vw, 34px);
+    font-weight: normal;
+    color: white;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    line-height: 1.05;
+}
+
+.exp-desc {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(248, 244, 236, 0.82);
+    line-height: 1.65;
+    margin-bottom: 16px;
+}
+
+.exp-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 16px;
+    flex: 1;
+}
+
+.exp-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 13.5px;
+    font-weight: 300;
+    color: rgba(248, 244, 236, 0.85);
+    line-height: 1.5;
+}
+
+.exp-list li::before {
+    content: '';
+    flex-shrink: 0;
+    margin-top: 7px;
+    width: 5px;
+    height: 5px;
+    background: rgba(168, 200, 220, 0.5);
     border-radius: 50%;
+}
 
+.exp-boats-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding: 12px 0;
+    border-top: 1px solid rgba(220, 240, 255, 0.09);
+    margin-bottom: 14px;
+}
+
+.exp-boats-label {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(248, 244, 236, 0.52);
+}
+
+.exp-boats-val {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(248, 244, 236, 0.6);
+}
+
+.btn-wa-exp {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--green);
+    transition: opacity 0.2s;
+    padding: 10px 0 4px;
+}
+.btn-wa-exp:hover { opacity: 0.65; color: var(--green); }
+
+/* ── SUNSETS ─────────────────────────────────────────────── */
+
+.sunset-section {
+    position: relative;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.sunset-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 42%;
+    display: block;
+    filter: saturate(1.3) hue-rotate(-18deg);
+}
+
+.sunset-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(4, 8, 28, 0.96) 0%,
+        rgba(4, 8, 28, 0.82) 25%,
+        rgba(4, 8, 28, 0.14) 52%,
+        rgba(4, 8, 28, 0.0) 75%
+    );
+}
+
+.sunset-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 620px;
+    padding: clamp(64px, 9vw, 112px) clamp(24px, 5vw, 80px);
+}
+
+.sunset-label-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.sunset-label-line {
+    width: 28px;
+    height: 1px;
+    background: rgba(244, 114, 182, 0.6);
+}
+
+.sunset-label {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(244, 114, 182, 0.75);
+}
+
+.sunset-h2 {
+    font-family: 'Tanker', sans-serif;
+    font-size: clamp(64px, 9vw, 104px);
+    font-weight: normal;
+    color: #FFF1F5;
+    letter-spacing: 4px;
+    line-height: 0.9;
+    margin-bottom: 20px;
+}
+
+.sunset-desc {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(255, 228, 240, 0.78);
+    line-height: 1.72;
+    max-width: 400px;
+    margin-bottom: 32px;
+}
+
+.sunset-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 28px;
+}
+
+.sunset-detail-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255, 228, 240, 0.92);
+}
+
+.sunset-detail-row i {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid rgba(244, 114, 182, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
-
-    font-size: clamp(1.8rem, 3vw, 2.5rem);
-
-    text-decoration: none;
-
-    z-index: 9999;
-
-    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.3);
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+    font-size: 12px;
+    color: rgba(244, 114, 182, 0.85);
+    flex-shrink: 0;
 }
 
-.whatsapp-btn:hover {
-    transform: scale(1.1);
+.sunset-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 32px;
+}
 
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
+.sunset-tag {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    color: rgba(244, 114, 182, 0.9);
+    background: rgba(244, 114, 182, 0.1);
+    border: 1px solid rgba(244, 114, 182, 0.22);
+    padding: 5px 13px;
+    border-radius: 3px;
+}
 
+.btn-sunset-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-family: 'Tanker', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #0A0600;
+    background: #E879A0;
+    padding: 15px 28px;
+    border-radius: 3px;
+    transition: background 0.2s;
+}
+.btn-sunset-cta:hover { background: #d4608a; color: #0A0600; }
+
+/* ── FAQ ─────────────────────────────────────────────────── */
+
+.faq-inner {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.faq-list { margin-top: 44px; }
+
+.faq-item { border-top: 1px solid rgba(220, 240, 255, 0.12); }
+.faq-item:last-child { border-bottom: 1px solid rgba(220, 240, 255, 0.12); }
+
+.faq-q {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+}
+
+.faq-q span {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
     color: white;
+    line-height: 1.3;
 }
+
+.faq-icon {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 13px;
+    flex-shrink: 0;
+    transition: transform 0.25s;
+}
+
+.faq-item.open .faq-icon { transform: rotate(45deg); color: white; }
+
+.faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+}
+
+.faq-item.open .faq-a { max-height: 300px; }
+
+.faq-a p {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(248, 244, 236, 0.82);
+    line-height: 1.72;
+    padding-bottom: 20px;
+}
+
+/* ── CTA SECTION ─────────────────────────────────────────── */
+
+.cta-section {
+    padding: clamp(72px, 10vw, 120px) clamp(20px, 5vw, 80px);
+    background: var(--brand);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-circles { position: absolute; right: -60px; top: 50%; transform: translateY(-50%); pointer-events: none; }
+
+.cta-circle {
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    top: 50%;
+    right: 0;
+    transform: translate(0, -50%);
+}
+
+.cta-circle-1 { width: 480px; height: 480px; }
+.cta-circle-2 { width: 320px; height: 320px; }
+
+.cta-content { max-width: 620px; position: relative; z-index: 1; }
+
+.cta-label {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: rgba(212, 184, 150, 0.7);
+    margin-bottom: 20px;
+}
+
+.cta-h2 {
+    font-family: 'Tanker', sans-serif;
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: normal;
+    color: #EAF1F8;
+    letter-spacing: 3px;
+    line-height: 1.1;
+    margin-bottom: 18px;
+}
+
+.cta-body {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(234, 241, 248, 0.6);
+    line-height: 1.7;
+    max-width: 480px;
+    margin-bottom: 36px;
+}
+
+.cta-buttons {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.btn-wa-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-family: 'Tanker', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: white;
+    background: var(--green);
+    padding: 16px 28px;
+    border-radius: 3px;
+    transition: background 0.2s;
+}
+.btn-wa-cta:hover { background: #1DB954; color: white; }
+
+.btn-outline-cta {
+    font-family: 'Tanker', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(234, 241, 248, 0.7);
+    border: 1.5px solid rgba(234, 241, 248, 0.25);
+    padding: 15px 22px;
+    border-radius: 3px;
+    transition: all 0.2s;
+}
+.btn-outline-cta:hover { border-color: rgba(234, 241, 248, 0.7); color: #EAF1F8; }
+
+.cta-phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(234, 241, 248, 0.38);
+    transition: color 0.2s;
+}
+.cta-phone:hover { color: rgba(234, 241, 248, 0.8); }
+
+/* ── FOOTER ──────────────────────────────────────────────── */
 
 .footer {
-    background-color: #28357a;
+    background: var(--darker);
+    padding: clamp(36px, 5vw, 56px) clamp(20px, 5vw, 80px);
 }
 
-.footer-title {
-    color: white;
-
-    font-size: clamp(1.5rem, 3vw, 2.5rem);
-
-    letter-spacing: 0.15rem;
+.footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 28px;
 }
 
-.footer-phone {
-    color: white;
-
-    text-decoration: none;
-
-    font-size: clamp(1rem, 2vw, 1.2rem);
-
-    opacity: 0.85;
-
-    transition:
-        opacity 0.3s ease,
-        transform 0.3s ease;
+.footer-logo {
+    height: 52px;
+    width: auto;
+    display: block;
+    margin-bottom: 14px;
+    filter: brightness(1.4);
 }
 
-.footer-phone:hover {
-    color: white;
+.footer-address {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(234, 241, 248, 0.38);
+    margin-bottom: 4px;
+}
 
+.footer-contact-link {
+    display: block;
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(234, 241, 248, 0.5);
+    margin-top: 3px;
+    transition: color 0.2s;
+}
+.footer-contact-link:hover { color: rgba(234, 241, 248, 0.85); }
+
+.footer-socials {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.footer-social-btn {
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(234, 241, 248, 0.12);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(234, 241, 248, 0.6);
+    font-size: 15px;
+    transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+.footer-social-btn:hover {
+    border-color: rgba(234, 241, 248, 0.4);
+    background: rgba(234, 241, 248, 0.06);
+    color: white;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    align-items: center;
+}
+
+.footer-links a {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(234, 241, 248, 0.48);
+    transition: color 0.2s;
+}
+.footer-links a:hover { color: rgba(234, 241, 248, 0.85); }
+
+.footer-bottom {
+    border-top: 1px solid rgba(234, 241, 248, 0.07);
+    padding-top: 20px;
+}
+
+.footer-bottom p {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+    color: rgba(234, 241, 248, 0.26);
+}
+
+/* ── WHATSAPP FLOAT ──────────────────────────────────────── */
+
+.whatsapp-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 90;
+    width: 54px;
+    height: 54px;
+    background: var(--green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    color: white;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.whatsapp-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(37, 211, 102, 0.52);
+    color: white;
+}
+
+/* ── MODALS ──────────────────────────────────────────────── */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background: rgba(8, 16, 32, 0.0);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s, background 0.2s;
+}
+
+.modal-overlay.active {
     opacity: 1;
-
-    transform: scale(1.05);
+    pointer-events: all;
+    background: rgba(8, 16, 32, 0.78);
 }
 
-.footer-social {
+.modal-box {
+    background: #0D1268;
+    width: 100%;
+    max-width: 460px;
+    max-height: 88vh;
+    overflow-y: auto;
+    border-radius: 4px;
+    box-shadow: 0 32px 80px rgba(0, 0, 0, 0.35);
+    transform: translateY(16px);
+    transition: transform 0.25s;
+}
+
+.modal-overlay.active .modal-box { transform: translateY(0); }
+
+.modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 24px 28px 20px;
+}
+
+.modal-label {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(248, 244, 236, 0.45);
+    margin-bottom: 5px;
+}
+
+.modal-title {
+    font-family: 'Tanker', sans-serif;
+    font-size: 28px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    color: #EAF1FF;
+}
+
+.modal-close {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(220, 240, 255, 0.65);
+    font-size: 16px;
+    background: rgba(137, 180, 255, 0.08);
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    flex-shrink: 0;
+    margin-top: 4px;
+    transition: background 0.2s;
+}
+.modal-close:hover { background: rgba(220, 240, 255, 0.13); }
+
+.modal-body { padding: 0 28px 28px; }
+
+.tarifa-high {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 18px;
+    background: rgba(40, 52, 123, 0.6);
+    border: 1px solid rgba(137, 180, 255, 0.25);
+    border-radius: 3px;
+    margin-bottom: 16px;
+}
+
+.tarifa-season {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #89B4FF;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.tarifa-dates {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(248, 244, 236, 0.52);
+    display: block;
+}
+
+.tarifa-price {
+    font-family: 'Tanker', sans-serif;
+    font-size: 26px;
+    letter-spacing: 2px;
+    color: #EAF1FF;
+    white-space: nowrap;
+}
+
+.tarifa-low-label {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(248, 244, 236, 0.32);
+    margin-bottom: 10px;
+}
+
+.tarifa-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border: 1px solid rgba(220, 240, 255, 0.1);
+    border-radius: 3px;
+    margin-bottom: 7px;
+}
+
+.tarifa-row span:first-child {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #EAF1FF;
+}
+
+.tarifa-row span:last-child {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: rgba(248, 244, 236, 0.7);
+    white-space: nowrap;
+}
+
+.tarifa-note {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(248, 244, 236, 0.38);
+    line-height: 1.65;
+    margin-top: 12px;
+    margin-bottom: 22px;
+}
+
+.btn-wa-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    font-family: 'Tanker', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     color: white;
-
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
-
-    opacity: 0.8;
-
-    transition:
-        transform 0.3s ease,
-        opacity 0.3s ease;
+    background: var(--green);
+    padding: 13px 20px;
+    border-radius: 3px;
+    transition: background 0.2s;
 }
-
-.footer-social:hover {
-    color: white;
-
-    opacity: 1;
-
-    transform: scale(1.15);
-}
-
-@media (max-width: 991px) {
-    .custom-header {
-        padding: 0px;
-    }
-
-    .logo {
-        max-height: 50px;
-    }
-
-    .navbar-collapse {
-        margin-top: 15px;
-        padding: 20px;
-        border-radius: 0 0 20px 20px;
-    }
-
-    .phone {
-        font-size: 22px;
-    }
-
-    .lang-switch span {
-        font-size: 20px;
-    }
-
-    .hero {
-        padding-top: 13rem;
-    }
-
-    .hero h1 {
-        font-size: 26px;
-        margin-bottom: 0px !important;
-    }
-
-    .hero-btn {
-        font-size: 12px;
-        margin-top: 0px;
-        margin-top: 1rem;
-    }
-
-    .custom-toggler {
-        border: none !important;
-    }
-
-    .titol {
-        transform: translateY(-3rem);
-    }
-
-    .subtitol {
-        transform: translateY(11rem);
-    }
-}
+.btn-wa-modal:hover { background: #1DB954; color: white; }

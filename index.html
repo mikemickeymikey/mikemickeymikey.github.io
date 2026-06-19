@@ -1,28 +1,37 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="ca">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mambo Boats</title>
+    <title>Alquiler de Barco en Palamós | Mambo Boats — Costa Brava 2026</title>
+    <meta name="description" content="Alquiler de barco en Palamós, Costa Brava. Capelli Tempest 625, Zodiac Medline II y Faeton 980 con patrón. Hasta 12 personas. Reserva por WhatsApp. Temporada 2026.">
     <link rel="icon" type="image/png" href="img/icon.png">
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap + FontAwesome -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Preload hero image -->
+    <link rel="preload" as="image" href="uploads/hero_flipped.jpg" fetchpriority="high">
 </head>
 
 <body>
 
-    <header class="custom-header">
+    <!-- ══ HEADER ══ -->
+    <header class="custom-header" id="mainHeader">
         <nav class="navbar navbar-expand-lg">
-            <div class="container">
+            <div class="container-fluid px-4 px-lg-5">
 
-                <a class="navbar-brand" href="https://mamboboats.com/">
+                <a class="navbar-brand" href="#">
                     <img class="logo" src="img/logo_llarg.png" alt="Mambo Boats">
                 </a>
 
@@ -33,30 +42,36 @@
                 </button>
 
                 <div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
-                    <div class="navbar-nav align-items-center gap-3 gap-lg-5 mt-4 mt-lg-0">
+                    <div class="navbar-nav align-items-center gap-3 gap-lg-4 mt-4 mt-lg-0">
 
-                        <div class="lang-switch d-flex gap-3 justify-content-center">
-                            <span onclick="setLang('ca')">CAT</span>
-                            <span onclick="setLang('en')">EN</span>
-                            <span onclick="setLang('es')">ESP</span>
+                        <a class="nav-link-custom" href="#barcos"
+                            data-es="Barcos" data-en="Boats" data-ca="Embarcacions"></a>
+                        <a class="nav-link-custom" href="#experiencias"
+                            data-es="Experiencias" data-en="Experiences" data-ca="Experiències"></a>
+                        <a class="nav-link-custom nav-link-pink" href="#sunsets">Sunsets</a>
+                        <a class="nav-link-custom" href="#faq">FAQ</a>
+
+                        <div class="lang-switch d-flex gap-1">
+                            <button onclick="setLang('ca')" class="lang-btn" id="btn-ca">CAT</button>
+                            <button onclick="setLang('en')" class="lang-btn" id="btn-en">EN</button>
+                            <button onclick="setLang('es')" class="lang-btn" id="btn-es">ESP</button>
                         </div>
 
-                        <a href="tel:+34611490585" class="phone text-center">
+                        <a href="tel:+34611490585" class="nav-phone">
                             (+34) 611 49 05 85
                         </a>
 
-                        <!-- socials -->
-                        <div class="d-flex flex-row align-items-center justify-content-center gap-4">
-
-                            <a href="https://www.instagram.com/mamboboats/" class="icon text-center" target="_blank">
-                                <i class="fab fa-instagram fs-2"></i>
+                        <div class="d-flex flex-row align-items-center gap-3">
+                            <a href="https://www.instagram.com/mamboboats/" class="nav-icon" target="_blank">
+                                <i class="fab fa-instagram"></i>
                             </a>
-
-                            <a href="#" class="icon text-center" target="_blank">
-                                <i class="fab fa-tiktok fs-2"></i>
+                            <a href="https://www.tiktok.com/@mamboboats" class="nav-icon" target="_blank">
+                                <i class="fab fa-tiktok"></i>
                             </a>
-
                         </div>
+
+                        <a href="https://wa.me/34611490585" class="btn-reservar" target="_blank"
+                            data-es="Reservar →" data-en="Book now →" data-ca="Reservar →"></a>
 
                     </div>
                 </div>
@@ -65,83 +80,601 @@
         </nav>
     </header>
 
-    <section class="hero d-flex flex-column text-center">
+    <!-- ══ HERO ══ -->
+    <section class="hero">
+        <div class="hero-img-wrap">
+            <img src="uploads/hero_flipped.jpg" alt="Alquiler de barco en Palamós, Costa Brava — Mambo Boats"
+                class="hero-img" fetchpriority="high" decoding="sync">
+            <div class="hero-overlay"></div>
+        </div>
 
-        <!-- CENTRO -->
-        <div class="container d-flex flex-column justify-content-center align-items-center mb-5">
+        <div class="hero-content">
+            <div class="hero-label-row">
+                <span class="hero-label-line"></span>
+                <span class="hero-label"
+                    data-es="Puerto de Palamós · Costa Brava"
+                    data-en="Port of Palamós · Costa Brava"
+                    data-ca="Port de Palamós · Costa Brava">Port de Palamós · Costa Brava</span>
+            </div>
 
-            <h1 class="text-white mb-3 titol" data-es="Descubre la Costa Brava con nosotros"
-                data-en="Discover the Costa Brava with us" data-ca="Descobreix la Costa Brava amb nosaltres">
+            <h1 class="hero-h1">
+                <span data-es="Alquiler de barco" data-en="Boat rental" data-ca="Lloguer de barques">Lloguer de barques</span><br>
+                <span data-es="en Palamós." data-en="in Palamós." data-ca="a Palamós.">a Palamós.</span>
             </h1>
 
-            <a href="#nauticmanager" class="hero-btn" data-es="Reservar" data-en="Book a boat" data-ca="Reservar">
+            <p class="hero-sub"
+                data-es="Las mejores experiencias en barco de la Costa Brava."
+                data-en="The best boat experiences on the Costa Brava."
+                data-ca="Les millors experiències en barco de la Costa Brava.">Les millors experiències en barco de la Costa Brava.</p>
+
+            <div class="hero-badge">
+                <span data-es="Temporada 2026 · Reserva disponible"
+                    data-en="Season 2026 · Booking available"
+                    data-ca="Temporada 2026 · Reserves disponibles">Temporada 2026 · Reserves disponibles</span>
+            </div>
+
+            <div class="hero-cta-row">
+                <a href="https://wa.me/34611490585" class="btn-wa-hero" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    <span data-es="Reservar por WhatsApp" data-en="Book via WhatsApp" data-ca="Reservar per WhatsApp">Reservar per WhatsApp</span>
+                </a>
+                <a href="#barcos" class="btn-outline-hero"
+                    data-es="Ver barcos ↓" data-en="See boats ↓" data-ca="Veure barques ↓">Veure barques ↓</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ TICKER ══ -->
+    <div class="ticker-wrap">
+        <div class="ticker-track" id="tickerTrack"></div>
+    </div>
+
+    <!-- ══ BARCOS ══ -->
+    <section id="barcos" class="section-dark">
+        <div class="section-header">
+            <p class="section-label"
+                data-es="Nuestra flota" data-en="Our fleet" data-ca="La nostra flota">La nostra flota</p>
+            <h2 class="section-h2"
+                data-es="El barco ideal para cada ocasión."
+                data-en="The ideal boat for every occasion."
+                data-ca="La barca ideal per a cada ocasió.">La barca ideal per a cada ocasió.</h2>
+        </div>
+
+        <div class="boats-grid">
+
+            <!-- Capelli Tempest 625 -->
+            <article class="boat-card">
+                <div class="boat-img-wrap">
+                    <div class="boat-img" style="background-image:url('uploads/DJI_20260522195041_0701_D_1-c77cda22.jpg');background-position:47% 40%;transform:scale(1.1);transform-origin:47% 40%;"></div>
+                    <div class="boat-img-overlay"></div>
+                    <div class="boat-cap-badge">12 pax · 140cv</div>
+                </div>
+                <div class="boat-body">
+                    <p class="boat-type"
+                        data-es="Plan de amigos" data-en="Groups &amp; friends" data-ca="Pla d'amics">Pla d'amics</p>
+                    <h3 class="boat-name">Capelli Tempest 625</h3>
+                    <div class="boat-license-row">
+                        <i class="fas fa-shield-halved"></i>
+                        <span data-es="Requiere PNB" data-en="PNB required" data-ca="Requereix PNB">Requereix PNB</span>
+                    </div>
+                    <p class="boat-desc"
+                        data-es="La embarcación perfecta para grupos con ganas de pasarlo bien. Rígida, potente y espaciosa."
+                        data-en="The perfect boat for groups ready to have a great time. Rigid, powerful and spacious."
+                        data-ca="L'embarcació perfecta per a grups amb ganes de passar-ho bé. Rígida, potent i espaiosa.">L'embarcació perfecta per a grups amb ganes de passar-ho bé. Rígida, potent i espaiosa.</p>
+                    <div class="boat-price-row">
+                        <span class="boat-price">Des de 210 €</span>
+                        <button class="btn-tarifes" onclick="openModal('tarifes-capelli')"
+                            data-es="Ver tarifas" data-en="View rates" data-ca="Veure tarifes">Veure tarifes</button>
+                    </div>
+                    <div class="boat-actions">
+                        <a href="https://wa.me/34611490585?text=Hola%2C+vull+informaci%C3%B3+sobre+la+Capelli+Tempest+625." class="btn-wa-boat" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            <span data-es="Reservar" data-en="Book" data-ca="Reservar">Reservar</span>
+                        </a>
+                        <a href="#nauticmanager" class="btn-avail"
+                            data-es="Disponibilidad →" data-en="Availability →" data-ca="Disponibilitat →">Disponibilitat →</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Zodiac Medline II -->
+            <article class="boat-card">
+                <div class="boat-img-wrap">
+                    <div class="boat-img" style="background-image:url('uploads/DJI_20260522195430_0716_D_1.jpg');background-position:60% 45%;"></div>
+                    <div class="boat-img-overlay"></div>
+                    <div class="boat-cap-badge">11 pax · 140cv</div>
+                </div>
+                <div class="boat-body">
+                    <p class="boat-type"
+                        data-es="Plan romántico · Grupos pequeños"
+                        data-en="Romantic · Small groups"
+                        data-ca="Pla romàntic · Grups petits">Pla romàntic · Grups petits</p>
+                    <h3 class="boat-name">Zodiac Medline II</h3>
+                    <div class="boat-license-row">
+                        <i class="fas fa-shield-halved"></i>
+                        <span data-es="Licencia de navegación" data-en="Navigation licence" data-ca="Llicència de navegació">Llicència de navegació</span>
+                    </div>
+                    <p class="boat-desc"
+                        data-es="Semirrígida ágil y cómoda. Perfecta para parejas y grupos reducidos."
+                        data-en="Agile and comfortable rigid inflatable. Perfect for couples and small groups."
+                        data-ca="Semirígida àgil i còmoda. Perfecta per a parelles i grups reduïts.">Semirígida àgil i còmoda. Perfecta per a parelles i grups reduïts.</p>
+                    <div class="boat-price-row">
+                        <span class="boat-price">Des de 225 €</span>
+                        <button class="btn-tarifes" onclick="openModal('tarifes-zodiac')"
+                            data-es="Ver tarifas" data-en="View rates" data-ca="Veure tarifes">Veure tarifes</button>
+                    </div>
+                    <div class="boat-actions">
+                        <a href="https://wa.me/34611490585?text=Hola%2C+vull+informaci%C3%B3+sobre+la+Zodiac+Medline+II." class="btn-wa-boat" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            <span data-es="Reservar" data-en="Book" data-ca="Reservar">Reservar</span>
+                        </a>
+                        <a href="#nauticmanager" class="btn-avail"
+                            data-es="Disponibilidad →" data-en="Availability →" data-ca="Disponibilitat →">Disponibilitat →</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Faeton 980 -->
+            <article class="boat-card">
+                <div class="boat-img-wrap">
+                    <div class="boat-img" style="background-image:url('uploads/faeton_980.png');background-position:center 55%;background-size:contain;background-repeat:no-repeat;background-color:#0d1a3a;"></div>
+                    <div class="boat-img-overlay"></div>
+                    <div class="boat-cap-badge"
+                        data-es="10 pax · Patrón" data-en="10 pax · Skipper" data-ca="10 pax · Patró">10 pax · Patró</div>
+                </div>
+                <div class="boat-body">
+                    <p class="boat-type"
+                        data-es="Premium · Celebraciones" data-en="Premium · Events" data-ca="Premium · Celebracions">Premium · Celebracions</p>
+                    <h3 class="boat-name">Faeton 980</h3>
+                    <div class="boat-license-row">
+                        <i class="fas fa-shield-halved"></i>
+                        <span data-es="Patrón incluido" data-en="Skipper included" data-ca="Patró inclòs">Patró inclòs</span>
+                    </div>
+                    <p class="boat-desc"
+                        data-es="La más grande y cómoda de la flota. Con patrón a bordo incluido — tú solo disfrutas. Ideal para celebraciones y eventos."
+                        data-en="The largest and most comfortable vessel. With a skipper included — you just enjoy. Ideal for events and special days."
+                        data-ca="La més gran i còmoda de la flota. Amb patró a bord inclòs — tu només gaudeixes. Ideal per a celebracions i esdeveniments.">La més gran i còmoda de la flota. Amb patró a bord inclòs — tu només gaudeixes. Ideal per a celebracions i esdeveniments.</p>
+                    <div class="boat-price-row">
+                        <span class="boat-price">Des de 570 €</span>
+                        <button class="btn-tarifes" onclick="openModal('tarifes-faeton')"
+                            data-es="Ver tarifas" data-en="View rates" data-ca="Veure tarifes">Veure tarifes</button>
+                    </div>
+                    <div class="boat-actions">
+                        <a href="https://wa.me/34611490585?text=Hola%2C+vull+informaci%C3%B3+sobre+el+Faeton+980+amb+patr%C3%B3." class="btn-wa-boat" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            <span data-es="Reservar" data-en="Book" data-ca="Reservar">Reservar</span>
+                        </a>
+                        <a href="#nauticmanager" class="btn-avail"
+                            data-es="Disponibilidad →" data-en="Availability →" data-ca="Disponibilitat →">Disponibilitat →</a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- ══ EXPERIENCIAS ══ -->
+    <section id="experiencias" class="section-dark">
+        <div class="section-header">
+            <p class="section-label">Mambo Experience Signature</p>
+            <h2 class="section-h2"
+                data-es="Descubre la Costa Brava como la vivimos nosotros."
+                data-en="Discover the Costa Brava the way we live it."
+                data-ca="Descobreix la Costa Brava com la vivim nosaltres.">Descobreix la Costa Brava com la vivim nosaltres.</h2>
+        </div>
+
+        <div class="exp-grid">
+
+            <!-- Mambo Horizon -->
+            <article class="exp-card">
+                <div class="exp-img-wrap">
+                    <img src="uploads/exp_adrenalina.jpg" alt="Mambo Horizon — excursión en barco Costa Brava" class="exp-img" loading="lazy">
+                    <div class="exp-img-overlay"></div>
+                    <div class="exp-time-badge">6h 30min</div>
+                </div>
+                <div class="exp-body">
+                    <p class="exp-tagline"
+                        data-es="Para los que quieren más." data-en="For those who want more." data-ca="Per als que volen més.">Per als que volen més.</p>
+                    <h3 class="exp-name">Mambo Horizon</h3>
+                    <p class="exp-desc"
+                        data-es="La ruta para grupos con energía. Saltos, snorkel, vermut y Mediterráneo a tope. Cada parada tiene su dosis."
+                        data-en="The route for high-energy groups. Cliff jumps, snorkelling, vermouth and the Mediterranean at full throttle."
+                        data-ca="La ruta per a grups amb energia. Salts, snorkel, vermut i Mediterrani a tope. Cada parada té la seva dosi.">La ruta per a grups amb energia. Salts, snorkel, vermut i Mediterrani a tope. Cada parada té la seva dosi.</p>
+                    <ul class="exp-list">
+                        <li data-es="Salto desde acantilado en La Fosca" data-en="Cliff jumping at La Fosca" data-ca="Salt des d'espadat a La Fosca">Salt des d'espadat a La Fosca</li>
+                        <li data-es="Snorkel en les Illes Formigues" data-en="Snorkelling at Illes Formigues" data-ca="Snorkel a les Illes Formigues">Snorkel a les Illes Formigues</li>
+                        <li data-es="Pack aperitivo incluido: cervezas + chips" data-en="Aperitif pack included: beers + chips" data-ca="Pack aperitiu inclòs: cerveses + chips">Pack aperitiu inclòs: cerveses + chips</li>
+                        <li data-es="Parada gastronómica en Cala Sénia" data-en="Food stop at Cala Sénia" data-ca="Parada gastronòmica a Cala Sénia">Parada gastronòmica a Cala Sénia</li>
+                    </ul>
+                    <div class="exp-boats-row">
+                        <span class="exp-boats-label" data-es="Barcos:" data-en="Boats:" data-ca="Barques:">Barques:</span>
+                        <span class="exp-boats-val">Medline II · Capelli Tempest 625</span>
+                    </div>
+                    <a href="https://wa.me/34611490585?text=Hola%2C+vull+reservar+l%27experi%C3%A8ncia+Mambo+Horizon." class="btn-wa-exp" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        <span data-es="Reservar esta experiencia" data-en="Book this experience" data-ca="Reservar aquesta experiència">Reservar aquesta experiència</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Mambo Discovery -->
+            <article class="exp-card">
+                <div class="exp-img-wrap">
+                    <img src="uploads/exp_explorador.jpg" alt="Mambo Discovery — excursión en barco Costa Brava" class="exp-img" loading="lazy">
+                    <div class="exp-img-overlay"></div>
+                    <div class="exp-time-badge">6h 30min</div>
+                </div>
+                <div class="exp-body">
+                    <p class="exp-tagline"
+                        data-es="Para los que nunca tienen suficiente Costa Brava."
+                        data-en="For those who can never get enough Costa Brava."
+                        data-ca="Per als que mai tenen prou Costa Brava.">Per als que mai tenen prou Costa Brava.</p>
+                    <h3 class="exp-name">Mambo Discovery</h3>
+                    <p class="exp-desc"
+                        data-es="De Palamós hasta Illa Roja en Pals. Calas, islotes y rincones únicos. Con snorkel y paddle surf."
+                        data-en="From Palamós to Illa Roja in Pals. Coves, islets and unique hidden spots. Snorkelling and paddle surfing."
+                        data-ca="De Palamós fins a l'Illa Roja a Pals. Cales, illots i racons únics. Amb snorkel i paddle surf.">De Palamós fins a l'Illa Roja a Pals. Cales, illots i racons únics. Amb snorkel i paddle surf.</p>
+                    <ul class="exp-list">
+                        <li data-es="Parada en calas e islotes de la Costa Brava" data-en="Stop at coves and islets" data-ca="Parada en cales i illots de la Costa Brava">Parada en cales i illots de la Costa Brava</li>
+                        <li data-es="Snorkel incluido en puntos de interés" data-en="Snorkelling included" data-ca="Snorkel inclòs en punts d'interès">Snorkel inclòs en punts d'interès</li>
+                        <li data-es="Paddle surf incluido" data-en="Paddle surfing included" data-ca="Paddle surf inclòs">Paddle surf inclòs</li>
+                        <li data-es="Destino final: Illa Roja · Pals" data-en="Final destination: Illa Roja · Pals" data-ca="Destí final: Illa Roja · Pals">Destí final: Illa Roja · Pals</li>
+                    </ul>
+                    <div class="exp-boats-row">
+                        <span class="exp-boats-label" data-es="Barcos:" data-en="Boats:" data-ca="Barques:">Barques:</span>
+                        <span class="exp-boats-val">Capelli Tempest 625 · Faeton 980</span>
+                    </div>
+                    <a href="https://wa.me/34611490585?text=Hola%2C+vull+reservar+l%27experi%C3%A8ncia+Mambo+Discovery." class="btn-wa-exp" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        <span data-es="Reservar esta experiencia" data-en="Book this experience" data-ca="Reservar aquesta experiència">Reservar aquesta experiència</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Mambo Escape -->
+            <article class="exp-card">
+                <div class="exp-img-wrap">
+                    <img src="uploads/exp_disfrutona2.jpg" alt="Mambo Escape — excursión en barco Costa Brava" class="exp-img" loading="lazy">
+                    <div class="exp-img-overlay"></div>
+                    <div class="exp-time-badge">4h – 8h</div>
+                </div>
+                <div class="exp-body">
+                    <p class="exp-tagline"
+                        data-es="Para los que saben vivir." data-en="For those who know how to live." data-ca="Per als que saben viure.">Per als que saben viure.</p>
+                    <h3 class="exp-name">Mambo Escape</h3>
+                    <p class="exp-desc"
+                        data-es="Un paseo tranquilo por calas con encanto hasta encontrar ese rincón solo vuestro. Con cava o mimosas."
+                        data-en="A relaxed cruise through charming coves until you find your own private spot. With cava or mimosas."
+                        data-ca="Un passeig tranquil per cales amb encant fins a trobar aquell racó vostre prop de Cala Pedrosa. Amb cava o mimoses.">Un passeig tranquil per cales amb encant fins a trobar aquell racó vostre prop de Cala Pedrosa. Amb cava o mimoses.</p>
+                    <ul class="exp-list">
+                        <li data-es="Fondeo en Tamariu · Cala Pedrosa" data-en="Anchored in Tamariu · Cala Pedrosa" data-ca="Fondejats a Tamariu · Cala Pedrosa">Fondejats a Tamariu · Cala Pedrosa</li>
+                        <li data-es="Pack aperitivo: cava o mimosas + gildas" data-en="Aperitif pack: cava or mimosas + gildas" data-ca="Pack aperitiu: cava o mimoses + gildas">Pack aperitiu: cava o mimoses + gildas</li>
+                        <li data-es="Sin prisa · sin itinerario fijo" data-en="No rush · no fixed itinerary" data-ca="Sense pressa · sense itinerari fix">Sense pressa · sense itinerari fix</li>
+                    </ul>
+                    <div class="exp-boats-row">
+                        <span class="exp-boats-label" data-es="Barcos:" data-en="Boats:" data-ca="Barques:">Barques:</span>
+                        <span class="exp-boats-val">Zodiac Medline II</span>
+                    </div>
+                    <a href="https://wa.me/34611490585?text=Hola%2C+vull+reservar+l%27experi%C3%A8ncia+Mambo+Escape." class="btn-wa-exp" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        <span data-es="Reservar esta experiencia" data-en="Book this experience" data-ca="Reservar aquesta experiència">Reservar aquesta experiència</span>
+                    </a>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- ══ SUNSETS ══ -->
+    <section id="sunsets" class="sunset-section">
+        <img src="uploads/DJI_20260522194845_0688_D.jpg"
+            alt="Atardecer en barco Palamós — excursión sunset Costa Brava"
+            class="sunset-img" loading="lazy">
+        <div class="sunset-overlay"></div>
+        <div class="sunset-content">
+            <div class="sunset-label-row">
+                <span class="sunset-label-line"></span>
+                <span class="sunset-label"
+                    data-es="Experiencia exclusiva" data-en="Exclusive experience" data-ca="Experiència exclusiva">Experiència exclusiva</span>
+            </div>
+            <h2 class="sunset-h2">Sunsets.</h2>
+            <p class="sunset-desc"
+                data-es="El Mediterráneo se tiñe de naranja. Embarca a las 19h con tu grupo y vive el atardecer desde el agua — bebidas, patrón y gasolina incluidos."
+                data-en="The Mediterranean turns amber. Board at 7pm with your group and watch the sunset from the water — drinks, skipper and fuel all included."
+                data-ca="La Mediterrània es tenyeix de taronja. Embarca a les 19h amb el teu grup i viu la posta de sol des de l'aigua — begudes, patró i gasolina inclosos.">La Mediterrània es tenyeix de taronja. Embarca a les 19h amb el teu grup i viu la posta de sol des de l'aigua — begudes, patró i gasolina inclosos.</p>
+            <div class="sunset-details">
+                <div class="sunset-detail-row">
+                    <i class="far fa-clock"></i>
+                    <span>19:00 — 21:30 · 2,5 h</span>
+                </div>
+                <div class="sunset-detail-row">
+                    <i class="fas fa-users"></i>
+                    <span data-es="Grupos de hasta 8 personas" data-en="Groups up to 8 people" data-ca="Grups de fins a 8 persones">Grups de fins a 8 persones</span>
+                </div>
+                <div class="sunset-detail-row">
+                    <i class="fas fa-euro-sign"></i>
+                    <span data-es="Desde 200€ · todo incluido" data-en="From €200 · all inclusive" data-ca="Des de 200€ · tot inclòs">Des de 200€ · tot inclòs</span>
+                </div>
+            </div>
+            <div class="sunset-tags">
+                <span class="sunset-tag" data-es="Patrón incluido" data-en="Skipper included" data-ca="Patró inclòs">Patró inclòs</span>
+                <span class="sunset-tag" data-es="Bebidas incluidas" data-en="Drinks included" data-ca="Begudes incloses">Begudes incloses</span>
+                <span class="sunset-tag" data-es="Gasolina incluida" data-en="Fuel included" data-ca="Gasolina inclosa">Gasolina inclosa</span>
+            </div>
+            <a href="https://wa.me/34611490585?text=Hola%21+Vull+reservar+una+sortida+Sunset+amb+Mambo+Boats." class="btn-sunset-cta" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                <span data-es="Reservar Sunset — WhatsApp" data-en="Book Sunset — WhatsApp" data-ca="Reservar Sunset — WhatsApp">Reservar Sunset — WhatsApp</span>
             </a>
-
         </div>
-
-        <!-- BOTTOM -->
-        <div class="container mt-5 subtitol">
-
-            <h2 class="text-white mt-3 mt-md-5" data-es="Alquiler de embarcaciones en Palamós"
-                data-en="Boat rentals in Palamós" data-ca="Lloguer d'embarcacions a Palamós">
-            </h2>
-
-            <p class="text-white hero-description mt-3 mt-md-5"
-                data-es="Disfruta de la Costa Brava a tu ritmo, descubriendo calas únicas y aguas cristalinas con la tranquilidad de estar en buenas manos."
-                data-en="Enjoy the Costa Brava at your own pace, discovering unique coves and crystal-clear waters with the peace of mind of being in good hands."
-                data-ca="Gaudeix de la Costa Brava al teu ritme, descobrint cales úniques i aigües cristal·lines amb la tranquil·litat d’estar en bones mans.">
-            </p>
-
-        </div>
-
     </section>
 
-    <section id="nauticmanager">
+    <!-- ══ RESERVAS ══ -->
+    <section id="nauticmanager" class="section-dark section-booking">
+        <div class="section-header">
+            <p class="section-label"
+                data-es="Disponibilidad en tiempo real" data-en="Real-time availability" data-ca="Disponibilitat en temps real">Disponibilitat en temps real</p>
+            <h2 class="section-h2"
+                data-es="Comprueba fechas y reserva." data-en="Check dates and book." data-ca="Comprova dates i reserva.">Comprova dates i reserva.</h2>
+        </div>
         <iframe name='' src='https://shop.nauticmanager.com/mambo-boats' scrolling='yes' height='900px' width='100%'
-            frameborder='0'></iframe>
+            frameborder='0' style="border-radius:8px;"></iframe>
     </section>
 
-    <a href="https://wa.me/34611490585" class="whatsapp-btn" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <!-- ══ FAQ ══ -->
+    <section id="faq" class="section-dark">
+        <div class="faq-inner">
+            <p class="section-label"
+                data-es="Preguntas frecuentes" data-en="FAQ" data-ca="Preguntes freqüents">Preguntes freqüents</p>
+            <h2 class="section-h2"
+                data-es="Todo lo que necesitas saber."
+                data-en="Everything you need to know."
+                data-ca="Tot el que necessites saber.">Tot el que necessites saber.</h2>
 
-    <footer class="footer py-5">
-        <div class="container text-center">
-
-            <h3 class="footer-title mb-4" data-es="¡Contacta con nosotros!" data-en="Get in touch with us!"
-                data-ca="Contacta amb nosaltres!">
-            </h3>
-
-            <div class="d-flex flex-column flex-md-row justify-content-center gap-3 mb-4">
-
-                <a href="tel:+34611490585" class="footer-phone">
-                    (+34) 611 49 05 85
-                </a>
-
-                <a href="tel:+34656364938" class="footer-phone">
-                    (+34) 656 364 938
-                </a>
-
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-q" onclick="toggleFaq(this)">
+                        <span data-es="¿Qué titulación necesito para alquilar?"
+                            data-en="What qualifications do I need to rent a boat?"
+                            data-ca="Quina titulació necessito per llogar?">Quina titulació necessito per llogar?</span>
+                        <i class="fas fa-plus faq-icon"></i>
+                    </button>
+                    <div class="faq-a">
+                        <p data-es="Depende del barco. La Capelli Tempest 625 requiere PNB. La Zodiac Medline II requiere licencia de navegación. La Faeton 980 incluye patrón a bordo: sin titulación necesaria."
+                            data-en="It depends on the vessel. The Capelli Tempest 625 requires a PNB. The Zodiac Medline II requires a navigation licence. The Faeton 980 includes a skipper — no qualifications needed."
+                            data-ca="Depèn de l'embarcació. La Capelli Tempest 625 requereix PNB. La Zodiac Medline II requereix llicència de navegació. La Faeton 980 inclou patró a bord: sense titulació necessària.">Depèn de l'embarcació. La Capelli Tempest 625 requereix PNB. La Zodiac Medline II requereix llicència de navegació. La Faeton 980 inclou patró a bord: sense titulació necessària.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" onclick="toggleFaq(this)">
+                        <span data-es="¿Cuántas personas pueden ir?"
+                            data-en="How many people can come?"
+                            data-ca="Quantes persones hi poden anar?">Quantes persones hi poden anar?</span>
+                        <i class="fas fa-plus faq-icon"></i>
+                    </button>
+                    <div class="faq-a">
+                        <p data-es="Capelli Tempest hasta 12, Zodiac Medline II hasta 11 y Faeton 980 hasta 10. Tenemos barco para cada tamaño de grupo."
+                            data-en="Capelli Tempest holds up to 12, Zodiac Medline II up to 11, and Faeton 980 up to 10. We have a boat for every group size."
+                            data-ca="Capelli Tempest fins a 12, Zodiac Medline II fins a 11 i Faeton 980 fins a 10. Tenim barca per a cada mida de grup.">Capelli Tempest fins a 12, Zodiac Medline II fins a 11 i Faeton 980 fins a 10. Tenim barca per a cada mida de grup.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" onclick="toggleFaq(this)">
+                        <span data-es="¿Cómo funciona la reserva?"
+                            data-en="How does booking work?"
+                            data-ca="Com funciona la reserva?">Com funciona la reserva?</span>
+                        <i class="fas fa-plus faq-icon"></i>
+                    </button>
+                    <div class="faq-a">
+                        <p data-es="Escríbenos por WhatsApp o usa el motor de reservas. Pedimos una señal para confirmar y el resto se paga el día del embarque en el Port de Palamós."
+                            data-en="Message us on WhatsApp or use the online booking engine. We ask for a deposit to confirm and the rest is paid on the day of departure."
+                            data-ca="Escriu-nos per WhatsApp o utilitza el motor de reserves. Demanem una senyal per confirmar i la resta es paga el dia de l'embarcament al Port de Palamós.">Escriu-nos per WhatsApp o utilitza el motor de reserves. Demanem una senyal per confirmar i la resta es paga el dia de l'embarcament al Port de Palamós.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" onclick="toggleFaq(this)">
+                        <span data-es="¿Qué pasa si hace mal tiempo?"
+                            data-en="What if the weather is bad?"
+                            data-ca="Què passa si fa mal temps?">Què passa si fa mal temps?</span>
+                        <i class="fas fa-plus faq-icon"></i>
+                    </button>
+                    <div class="faq-a">
+                        <p data-es="La seguridad es lo primero. Si las condiciones no son aptas para navegar, cambiamos la fecha sin coste ni penalización."
+                            data-en="Safety comes first. If conditions are not suitable for sailing, we change the date at no cost or penalty."
+                            data-ca="La seguretat és el primer. Si les condicions no són aptes per navegar, canviem la data sense cost ni penalització.">La seguretat és el primer. Si les condicions no són aptes per navegar, canviem la data sense cost ni penalització.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" onclick="toggleFaq(this)">
+                        <span data-es="¿Dónde está el punto de embarque?"
+                            data-en="Where is the departure point?"
+                            data-ca="On és el punt d'embarcament?">On és el punt d'embarcament?</span>
+                        <i class="fas fa-plus faq-icon"></i>
+                    </button>
+                    <div class="faq-a">
+                        <p data-es="En el Port de Palamós, Girona. Te enviamos la ubicación exacta al confirmar la reserva. Hay parking cerca y acceso fácil."
+                            data-en="At the Port of Palamós, Girona. We send you the exact location when confirmed. Parking nearby and easy access."
+                            data-ca="Al Port de Palamós, Girona. T'enviem la ubicació exacta en confirmar la reserva. Hi ha aparcament a prop i accés fàcil.">Al Port de Palamós, Girona. T'enviem la ubicació exacta en confirmar la reserva. Hi ha aparcament a prop i accés fàcil.</p>
+                    </div>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <div class="d-flex justify-content-center gap-4">
-
-                <a href="https://www.instagram.com/mamboboats/" target="_blank" class="footer-social">
-                    <i class="fab fa-instagram"></i>
+    <!-- ══ CTA FINAL ══ -->
+    <section class="cta-section">
+        <div class="cta-circles" aria-hidden="true">
+            <div class="cta-circle cta-circle-1"></div>
+            <div class="cta-circle cta-circle-2"></div>
+        </div>
+        <div class="cta-content">
+            <p class="cta-label"
+                data-es="Palamós · Costa Brava · 2026" data-en="Palamós · Costa Brava · 2026" data-ca="Palamós · Costa Brava · 2026">Palamós · Costa Brava · 2026</p>
+            <h2 class="cta-h2">
+                <span data-es="¿A qué esperas?" data-en="What are you waiting for?" data-ca="A què esperes?">A què esperes?</span><br>
+                <span data-es="El verano no dura para siempre." data-en="Summer doesn't last forever." data-ca="L'estiu no dura per sempre.">L'estiu no dura per sempre.</span>
+            </h2>
+            <p class="cta-body"
+                data-es="Escríbenos por WhatsApp o llámanos. En menos de 2 horas tienes tu barco confirmado para el día que quieras."
+                data-en="Message us on WhatsApp or give us a call. In less than 2 hours your boat is confirmed."
+                data-ca="Escriu-nos per WhatsApp o truca'ns. En menys de 2 hores tens el teu barco confirmat per al dia que vulguis.">Escriu-nos per WhatsApp o truca'ns. En menys de 2 hores tens el teu barco confirmat per al dia que vulguis.</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/34611490585" class="btn-wa-cta" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    <span data-es="Reservar por WhatsApp" data-en="Book via WhatsApp" data-ca="Reservar per WhatsApp">Reservar per WhatsApp</span>
                 </a>
-
-                <a href="https://www.tiktok.com/@mamboboats" target="_blank" class="footer-social">
-                    <i class="fab fa-tiktok"></i>
-                </a>
-
+                <a href="#nauticmanager" class="btn-outline-cta"
+                    data-es="Ver disponibilidad →" data-en="Check availability →" data-ca="Veure disponibilitat →">Veure disponibilitat →</a>
             </div>
+            <a href="tel:+34611490585" class="cta-phone">
+                <i class="fas fa-phone"></i> (+34) 611 49 05 85
+            </a>
+        </div>
+    </section>
 
+    <!-- ══ FOOTER ══ -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <img src="img/logo_llarg.png" alt="Mambo Boats" class="footer-logo">
+                <p class="footer-address">Port de Palamós · 17230 Girona</p>
+                <a href="tel:+34611490585" class="footer-contact-link">(+34) 611 49 05 85</a>
+                <a href="tel:+34656364938" class="footer-contact-link">(+34) 656 364 938</a>
+                <a href="mailto:hola@mamboboats.com" class="footer-contact-link">hola@mamboboats.com</a>
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/mamboboats/" target="_blank" class="footer-social-btn" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@mamboboats" target="_blank" class="footer-social-btn" aria-label="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="https://wa.me/34611490585" target="_blank" class="footer-social-btn" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <a href="#barcos" data-es="Barcos" data-en="Boats" data-ca="Embarcacions">Embarcacions</a>
+                <a href="#experiencias" data-es="Experiencias" data-en="Experiences" data-ca="Experiències">Experiències</a>
+                <a href="#sunsets">Sunsets</a>
+                <a href="#faq">FAQ</a>
+                <a href="https://wa.me/34611490585" target="_blank">WhatsApp</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p data-es="© 2026 Mambo Boats. Todos los derechos reservados."
+                data-en="© 2026 Mambo Boats. All rights reserved."
+                data-ca="© 2026 Mambo Boats. Tots els drets reservats.">© 2026 Mambo Boats. Tots els drets reservats.</p>
         </div>
     </footer>
 
-    <!-- JS -->
+    <!-- ══ WHATSAPP FLOAT ══ -->
+    <a href="https://wa.me/34611490585" class="whatsapp-btn" target="_blank" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- ══ MODALS DE TARIFES ══ -->
+    <div class="modal-overlay" id="tarifes-capelli" onclick="closeModal(event, 'tarifes-capelli')">
+        <div class="modal-box">
+            <div class="modal-header">
+                <div>
+                    <p class="modal-label"
+                        data-es="Tarifas 2026" data-en="Rates 2026" data-ca="Tarifes 2026">Tarifes 2026</p>
+                    <h3 class="modal-title">Capelli Tempest 625</h3>
+                </div>
+                <button class="modal-close" onclick="document.getElementById('tarifes-capelli').classList.remove('active')">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="tarifa-high">
+                    <div>
+                        <span class="tarifa-season" data-es="Temporada alta" data-en="High season" data-ca="Temporada alta">Temporada alta</span>
+                        <span class="tarifa-dates" data-es="01 agosto – 23 agosto" data-en="1 August – 23 August" data-ca="01 agost – 23 agost">01 agost – 23 agost</span>
+                    </div>
+                    <span class="tarifa-price">315 – 460 €</span>
+                </div>
+                <p class="tarifa-low-label" data-es="Períodos con precio reducido" data-en="Reduced-price periods" data-ca="Períodes amb preu reduït">Períodes amb preu reduït</p>
+                <div class="tarifa-row"><span data-es="03 julio – 31 julio" data-en="3 July – 31 July" data-ca="03 juliol – 31 juliol">03 juliol – 31 juliol</span><span>290 – 410 €</span></div>
+                <div class="tarifa-row"><span data-es="28 agosto – 17 septiembre" data-en="28 Aug – 17 Sep" data-ca="28 agost – 17 setembre">28 agost – 17 setembre</span><span>235 – 335 €</span></div>
+                <div class="tarifa-row"><span data-es="18 septiembre – 31 octubre" data-en="18 Sep – 31 Oct" data-ca="18 setembre – 31 octubre">18 setembre – 31 octubre</span><span>210 – 300 €</span></div>
+                <p class="tarifa-note"
+                    data-es="Precios por medio día y día completo. Consulta disponibilidad para grupos y fechas especiales."
+                    data-en="Half-day and full-day rates. Ask us about availability for groups and special dates."
+                    data-ca="Preus per mig dia i dia complet. Consulta disponibilitat per a grups i dates especials.">Preus per mig dia i dia complet. Consulta disponibilitat per a grups i dates especials.</p>
+                <a href="https://wa.me/34611490585?text=Hola%2C+vull+reservar+la+Capelli+Tempest+625." class="btn-wa-modal" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    <span data-es="Reservar por WhatsApp" data-en="Book via WhatsApp" data-ca="Reservar per WhatsApp">Reservar per WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="tarifes-zodiac" onclick="closeModal(event, 'tarifes-zodiac')">
+        <div class="modal-box">
+            <div class="modal-header">
+                <div>
+                    <p class="modal-label" data-es="Tarifas 2026" data-en="Rates 2026" data-ca="Tarifes 2026">Tarifes 2026</p>
+                    <h3 class="modal-title">Zodiac Medline II</h3>
+                </div>
+                <button class="modal-close" onclick="document.getElementById('tarifes-zodiac').classList.remove('active')">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="tarifa-high">
+                    <div>
+                        <span class="tarifa-season" data-es="Temporada alta" data-en="High season" data-ca="Temporada alta">Temporada alta</span>
+                        <span class="tarifa-dates" data-es="01 agosto – 23 agosto" data-en="1 August – 23 August" data-ca="01 agost – 23 agost">01 agost – 23 agost</span>
+                    </div>
+                    <span class="tarifa-price">380 – 525 €</span>
+                </div>
+                <p class="tarifa-low-label" data-es="Períodos con precio reducido" data-en="Reduced-price periods" data-ca="Períodes amb preu reduït">Períodes amb preu reduït</p>
+                <div class="tarifa-row"><span data-es="03 julio – 31 julio" data-en="3 July – 31 July" data-ca="03 juliol – 31 juliol">03 juliol – 31 juliol</span><span>360 – 460 €</span></div>
+                <div class="tarifa-row"><span data-es="28 agosto – 17 septiembre" data-en="28 Aug – 17 Sep" data-ca="28 agost – 17 setembre">28 agost – 17 setembre</span><span>250 – 340 €</span></div>
+                <div class="tarifa-row"><span data-es="18 septiembre – 31 octubre" data-en="18 Sep – 31 Oct" data-ca="18 setembre – 31 octubre">18 setembre – 31 octubre</span><span>225 – 320 €</span></div>
+                <p class="tarifa-note"
+                    data-es="Precios por medio día y día completo. Consulta disponibilidad para grupos y fechas especiales."
+                    data-en="Half-day and full-day rates. Ask us about availability for groups and special dates."
+                    data-ca="Preus per mig dia i dia complet. Consulta disponibilitat per a grups i dates especials.">Preus per mig dia i dia complet. Consulta disponibilitat per a grups i dates especials.</p>
+                <a href="https://wa.me/34611490585?text=Hola%2C+vull+reservar+la+Zodiac+Medline+II." class="btn-wa-modal" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    <span data-es="Reservar por WhatsApp" data-en="Book via WhatsApp" data-ca="Reservar per WhatsApp">Reservar per WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="tarifes-faeton" onclick="closeModal(event, 'tarifes-faeton')">
+        <div class="modal-box">
+            <div class="modal-header">
+                <div>
+                    <p class="modal-label" data-es="Tarifas 2026" data-en="Rates 2026" data-ca="Tarifes 2026">Tarifes 2026</p>
+                    <h3 class="modal-title">Faeton 980</h3>
+                </div>
+                <button class="modal-close" onclick="document.getElementById('tarifes-faeton').classList.remove('active')">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="tarifa-high">
+                    <div>
+                        <span class="tarifa-season" data-es="Temporada alta" data-en="High season" data-ca="Temporada alta">Temporada alta</span>
+                        <span class="tarifa-dates" data-es="23 junio – 31 agosto" data-en="23 June – 31 August" data-ca="23 juny – 31 agost">23 juny – 31 agost</span>
+                    </div>
+                    <span class="tarifa-price">650 – 900 €</span>
+                </div>
+                <p class="tarifa-low-label" data-es="Períodos con precio reducido" data-en="Reduced-price periods" data-ca="Períodes amb preu reduït">Períodes amb preu reduït</p>
+                <div class="tarifa-row"><span data-es="05 mayo – 22 junio" data-en="05 May – 22 June" data-ca="05 maig – 22 juny">05 maig – 22 juny</span><span>570 – 750 €</span></div>
+                <div class="tarifa-row"><span data-es="01 septiembre – 01 octubre" data-en="01 Sep – 01 Oct" data-ca="01 setembre – 01 octubre">01 setembre – 01 octubre</span><span>570 – 750 €</span></div>
+                <p class="tarifa-note"
+                    data-es="Precios por medio día y día completo. Consulta disponibilidad para grupos y fechas especiales."
+                    data-en="Half-day and full-day rates. Ask us about availability for groups and special dates."
+                    data-ca="Preus per mig dia i dia complet. Consulta disponibilitat per a grups i dates especials.">Preus per mig dia i dia complet. Consulta disponibilitat per a grups i dates especials.</p>
+                <a href="https://wa.me/34611490585?text=Hola%2C+vull+reservar+el+Faeton+980+amb+patr%C3%B3." class="btn-wa-modal" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    <span data-es="Reservar por WhatsApp" data-en="Book via WhatsApp" data-ca="Reservar per WhatsApp">Reservar per WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 
 </body>
-
 </html>
