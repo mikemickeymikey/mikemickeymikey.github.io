@@ -244,7 +244,7 @@ a { text-decoration: none; color: inherit; }
     font-size: clamp(52px, 9vw, 116px);
     font-weight: normal;
     color: white;
-    line-height: 0.95;
+    line-height: 1.05;
     letter-spacing: 3px;
     margin-bottom: 12px;
     animation: fadeUp 0.8s 0.5s both;
