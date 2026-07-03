@@ -324,8 +324,8 @@
                             data-es="Ver tarifas" data-en="View rates" data-ca="Veure tarifes">Veure tarifes</button>
                     </div>
                     <div class="boat-actions">
-                        <a href="https://wa.me/34611490585?text=Hola%2C+vull+informaci%C3%B3+sobre+la+Capelli+Tempest+625." class="btn-wa-boat" target="_blank">
-                            <i class="fab fa-whatsapp"></i>
+                        <a href="#nauticmanager" class="btn-wa-boat" onclick="startBookingWithBoat(1)">
+                            <i class="fas fa-calendar-check"></i>
                             <span data-es="Reservar" data-en="Book" data-ca="Reservar">Reservar</span>
                         </a>
                         <a href="capelli-tempest-625.html" class="btn-avail"
@@ -361,8 +361,8 @@
                             data-es="Ver tarifas" data-en="View rates" data-ca="Veure tarifes">Veure tarifes</button>
                     </div>
                     <div class="boat-actions">
-                        <a href="https://wa.me/34611490585?text=Hola%2C+vull+informaci%C3%B3+sobre+la+Zodiac+Medline+II." class="btn-wa-boat" target="_blank">
-                            <i class="fab fa-whatsapp"></i>
+                        <a href="#nauticmanager" class="btn-wa-boat" onclick="startBookingWithBoat(2)">
+                            <i class="fas fa-calendar-check"></i>
                             <span data-es="Reservar" data-en="Book" data-ca="Reservar">Reservar</span>
                         </a>
                         <a href="zodiac-medline-ii.html" class="btn-avail"
@@ -397,8 +397,8 @@
                             data-es="Ver tarifas" data-en="View rates" data-ca="Veure tarifes">Veure tarifes</button>
                     </div>
                     <div class="boat-actions">
-                        <a href="https://wa.me/34611490585?text=Hola%2C+vull+informaci%C3%B3+sobre+el+Faeton+980+amb+patr%C3%B3." class="btn-wa-boat" target="_blank">
-                            <i class="fab fa-whatsapp"></i>
+                        <a href="#nauticmanager" class="btn-wa-boat" onclick="startBookingWithBoat(3)">
+                            <i class="fas fa-calendar-check"></i>
                             <span data-es="Reservar" data-en="Book" data-ca="Reservar">Reservar</span>
                         </a>
                         <a href="faeton-980.html" class="btn-avail"
@@ -558,9 +558,9 @@
                 <span class="sunset-tag" data-es="Bebidas incluidas" data-en="Drinks included" data-ca="Begudes incloses">Begudes incloses</span>
                 <span class="sunset-tag" data-es="Gasolina incluida" data-en="Fuel included" data-ca="Gasolina inclosa">Gasolina inclosa</span>
             </div>
-            <a href="https://wa.me/34611490585?text=Hola%21+Vull+reservar+una+sortida+Sunset+amb+Mambo+Boats." class="btn-sunset-cta" target="_blank">
-                <i class="fab fa-whatsapp"></i>
-                <span data-es="Reservar Sunset — WhatsApp" data-en="Book Sunset — WhatsApp" data-ca="Reservar Sunset — WhatsApp">Reservar Sunset — WhatsApp</span>
+            <a href="#nauticmanager" class="btn-sunset-cta" onclick="startBookingWithBoat(1, 'sunset')">
+                <i class="fas fa-calendar-check"></i>
+                <span data-es="Reservar Sunset" data-en="Book Sunset" data-ca="Reservar Sunset">Reservar Sunset</span>
             </a>
         </div>
     </section>
@@ -573,8 +573,202 @@
             <h2 class="section-h2"
                 data-es="Comprueba fechas y reserva." data-en="Check dates and book." data-ca="Comprova dates i reserva.">Comprova dates i reserva.</h2>
         </div>
-        <iframe name='' src='https://shop.nauticmanager.com/mambo-boats' scrolling='yes' height='900px' width='100%'
-            frameborder='0' style="border-radius:8px;"></iframe>
+        <div class="booking-widget" id="bookingWidget">
+
+            <div class="booking-steps" id="bookingSteps">
+                <div class="booking-step active" data-step="1">
+                    <span class="booking-step-num">1</span>
+                    <span class="booking-step-label" data-es="Barco" data-en="Boat" data-ca="Vaixell">Vaixell</span>
+                </div>
+                <div class="booking-step" data-step="2">
+                    <span class="booking-step-num">2</span>
+                    <span class="booking-step-label" data-es="Fecha" data-en="Date" data-ca="Data">Data</span>
+                </div>
+                <div class="booking-step" data-step="3">
+                    <span class="booking-step-num">3</span>
+                    <span class="booking-step-label" data-es="Franja" data-en="Time" data-ca="Franja">Franja</span>
+                </div>
+                <div class="booking-step" data-step="4">
+                    <span class="booking-step-num">4</span>
+                    <span class="booking-step-label" data-es="Datos" data-en="Details" data-ca="Dades">Dades</span>
+                </div>
+                <div class="booking-step" data-step="5">
+                    <span class="booking-step-num">5</span>
+                    <span class="booking-step-label" data-es="Pago" data-en="Payment" data-ca="Pagament">Pagament</span>
+                </div>
+            </div>
+
+            <!-- Paso 1: Barco -->
+            <div class="booking-panel active" data-panel="1">
+                <h3 class="booking-panel-title"
+                    data-es="Selecciona un barco" data-en="Select a boat" data-ca="Selecciona un vaixell">Selecciona un vaixell</h3>
+                <div class="booking-boats-grid" id="bookingBoatsGrid">
+                    <button type="button" class="booking-boat-card" data-boat-id="1">
+                        <div class="booking-boat-img" style="background-image:url('uploads/DJI_20260522195041_0701_D_1-c77cda22.jpg');background-position:47% 40%;"></div>
+                        <div class="booking-boat-body">
+                            <h4 class="booking-boat-name">Capelli Tempest 625</h4>
+                            <p class="booking-boat-desc"
+                                data-es="La embarcación perfecta para grupos con ganas de pasarlo bien."
+                                data-en="The perfect boat for groups ready to have a great time."
+                                data-ca="L'embarcació perfecta per a grups amb ganes de passar-ho bé.">L'embarcació perfecta per a grups amb ganes de passar-ho bé.</p>
+                        </div>
+                        <div class="booking-boat-check"><i class="fas fa-check"></i></div>
+                    </button>
+                    <button type="button" class="booking-boat-card" data-boat-id="2">
+                        <div class="booking-boat-img" style="background-image:url('uploads/DJI_20260522195430_0716_D_1.jpg');background-position:60% 45%;"></div>
+                        <div class="booking-boat-body">
+                            <h4 class="booking-boat-name">Zodiac Medline II</h4>
+                            <p class="booking-boat-desc"
+                                data-es="Semirrígida ágil y cómoda. Perfecta para parejas y grupos reducidos."
+                                data-en="Agile and comfortable rigid inflatable. Perfect for couples and small groups."
+                                data-ca="Semirígida àgil i còmoda. Perfecta per a parelles i grups reduïts.">Semirígida àgil i còmoda. Perfecta per a parelles i grups reduïts.</p>
+                        </div>
+                        <div class="booking-boat-check"><i class="fas fa-check"></i></div>
+                    </button>
+                    <button type="button" class="booking-boat-card" data-boat-id="3">
+                        <div class="booking-boat-img" style="background-image:url('uploads/faeton_980.png');background-position:center 55%;background-size:contain;background-repeat:no-repeat;background-color:#0d1a3a;"></div>
+                        <div class="booking-boat-body">
+                            <h4 class="booking-boat-name">Faeton 980 Sport</h4>
+                            <p class="booking-boat-desc"
+                                data-es="La más grande y cómoda de la flota. Con patrón a bordo incluido."
+                                data-en="The largest and most comfortable vessel. With a skipper included."
+                                data-ca="La més gran i còmoda de la flota. Amb patró a bord inclòs.">La més gran i còmoda de la flota. Amb patró a bord inclòs.</p>
+                        </div>
+                        <div class="booking-boat-check"><i class="fas fa-check"></i></div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Paso 2: Fecha -->
+            <div class="booking-panel" data-panel="2">
+                <h3 class="booking-panel-title"
+                    data-es="Selecciona una fecha" data-en="Select a date" data-ca="Selecciona una data">Selecciona una data</h3>
+                <div class="booking-calendar">
+                    <div class="booking-cal-header">
+                        <button type="button" class="booking-cal-nav" id="calPrev" aria-label="Mes anterior"><i class="fas fa-chevron-left"></i></button>
+                        <span class="booking-cal-month" id="calMonthLabel"></span>
+                        <button type="button" class="booking-cal-nav" id="calNext" aria-label="Mes siguiente"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="booking-cal-weekdays" id="calWeekdays"></div>
+                    <div class="booking-cal-grid" id="calGrid"></div>
+                </div>
+            </div>
+
+            <!-- Paso 3: Franja -->
+            <div class="booking-panel" data-panel="3">
+                <h3 class="booking-panel-title"
+                    data-es="Selecciona una franja" data-en="Select a time slot" data-ca="Selecciona una franja">Selecciona una franja</h3>
+                <div class="booking-status" id="bookingSlotsStatus"></div>
+                <div class="booking-slots-grid" id="bookingSlotsGrid"></div>
+            </div>
+
+            <!-- Paso 4: Datos -->
+            <div class="booking-panel" data-panel="4">
+                <h3 class="booking-panel-title"
+                    data-es="Tus datos" data-en="Your details" data-ca="Les teves dades">Les teves dades</h3>
+                <form class="booking-form" id="bookingForm" novalidate>
+                    <label class="booking-field">
+                        <span data-es="Nombre completo *" data-en="Full name *" data-ca="Nom complet *">Nom complet *</span>
+                        <input type="text" name="nombre" required autocomplete="name">
+                    </label>
+                    <label class="booking-field">
+                        <span data-es="Correo electrónico *" data-en="Email address *" data-ca="Adreça electrònica *">Adreça electrònica *</span>
+                        <input type="email" name="email" required autocomplete="email">
+                    </label>
+                    <label class="booking-field">
+                        <span data-es="Teléfono *" data-en="Phone *" data-ca="Telèfon *">Telèfon *</span>
+                        <input type="tel" name="telefono" required autocomplete="tel">
+                    </label>
+                    <label class="booking-field">
+                        <span data-es="DNI / Pasaporte (opcional)" data-en="ID / Passport (optional)" data-ca="DNI / Passaport (opcional)">DNI / Passaport (opcional)</span>
+                        <input type="text" name="dni" autocomplete="off">
+                    </label>
+                    <label class="booking-field booking-field-wide">
+                        <span data-es="Dirección *" data-en="Address *" data-ca="Adreça *">Adreça *</span>
+                        <input type="text" name="direccion" required autocomplete="address-line1">
+                    </label>
+                    <label class="booking-field">
+                        <span data-es="Ciudad *" data-en="City *" data-ca="Ciutat *">Ciutat *</span>
+                        <input type="text" name="ciudad" required autocomplete="address-level2">
+                    </label>
+                    <label class="booking-field">
+                        <span data-es="Código postal *" data-en="Postal code *" data-ca="Codi postal *">Codi postal *</span>
+                        <input type="text" name="codigo_postal" required autocomplete="postal-code">
+                    </label>
+                    <label class="booking-field">
+                        <span data-es="País *" data-en="Country *" data-ca="País *">País *</span>
+                        <select name="pais" required autocomplete="country">
+                            <option value="ES" selected>España</option>
+                            <option value="FR">France</option>
+                            <option value="DE">Deutschland</option>
+                            <option value="IT">Italia</option>
+                            <option value="PT">Portugal</option>
+                            <option value="GB">United Kingdom</option>
+                            <option value="NL">Nederland</option>
+                            <option value="BE">Belgique</option>
+                            <option value="CH">Schweiz</option>
+                            <option value="US">United States</option>
+                            <option value="OTHER">Other</option>
+                        </select>
+                    </label>
+                </form>
+                <div class="booking-summary" id="bookingSummary4">
+                    <div class="booking-summary-row">
+                        <span data-es="Barco" data-en="Boat" data-ca="Vaixell">Vaixell</span>
+                        <span class="js-sum-boat">—</span>
+                    </div>
+                    <div class="booking-summary-row">
+                        <span data-es="Fecha" data-en="Date" data-ca="Data">Data</span>
+                        <span class="js-sum-date">—</span>
+                    </div>
+                    <div class="booking-summary-row">
+                        <span data-es="Franja" data-en="Time slot" data-ca="Franja">Franja</span>
+                        <span class="js-sum-slot">—</span>
+                    </div>
+                    <div class="booking-summary-row booking-summary-total">
+                        <span data-es="Total" data-en="Total" data-ca="Total">Total</span>
+                        <span class="js-sum-total">—</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paso 5: Pago -->
+            <div class="booking-panel" data-panel="5">
+                <h3 class="booking-panel-title"
+                    data-es="Confirma y paga" data-en="Confirm and pay" data-ca="Confirma i paga">Confirma i paga</h3>
+                <div class="booking-summary" id="bookingSummary5">
+                    <div class="booking-summary-row">
+                        <span data-es="Barco" data-en="Boat" data-ca="Vaixell">Vaixell</span>
+                        <span class="js-sum-boat">—</span>
+                    </div>
+                    <div class="booking-summary-row">
+                        <span data-es="Fecha" data-en="Date" data-ca="Data">Data</span>
+                        <span class="js-sum-date">—</span>
+                    </div>
+                    <div class="booking-summary-row">
+                        <span data-es="Franja" data-en="Time slot" data-ca="Franja">Franja</span>
+                        <span class="js-sum-slot">—</span>
+                    </div>
+                    <div class="booking-summary-row booking-summary-total">
+                        <span data-es="Total" data-en="Total" data-ca="Total">Total</span>
+                        <span class="js-sum-total">—</span>
+                    </div>
+                </div>
+                <button type="button" class="booking-pay-btn" id="bookingPayBtn">
+                    <span class="booking-spinner" id="bookingPaySpinner" hidden></span>
+                    <span data-es="Proceder al pago" data-en="Proceed to payment" data-ca="Procedir al pagament">Procedir al pagament</span>
+                </button>
+                <div class="booking-error" id="bookingPayError" hidden></div>
+            </div>
+
+            <div class="booking-nav">
+                <button type="button" class="booking-btn-back" id="bookingBack" hidden
+                    data-es="Atrás" data-en="Back" data-ca="Enrere">Enrere</button>
+                <button type="button" class="booking-btn-next" id="bookingNext" disabled
+                    data-es="Siguiente" data-en="Next" data-ca="Següent">Següent</button>
+            </div>
+
+        </div>
     </section>
 
     <!-- ══ FAQ ══ -->
@@ -832,6 +1026,7 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
+    <script src="booking.js"></script>
 
 </body>
 </html>
