@@ -123,6 +123,17 @@ function goToStep(step) {
   if (step === 3) fetchAvailability();
   if (step === 4 || step === 5) renderSummary();
 
+  if (step > 1) {
+    setTimeout(() => {
+      const section = document.getElementById('nauticmanager');
+      if (section) {
+        const headerHeight = document.getElementById('mainHeader')?.offsetHeight || 70;
+        const y = section.getBoundingClientRect().top + window.scrollY - headerHeight;
+        window.scrollTo({ behavior: 'smooth', top: y });
+      }
+    }, 50);
+  }
+
   updateNextButtonState();
 }
 
