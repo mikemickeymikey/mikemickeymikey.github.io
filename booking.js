@@ -43,6 +43,7 @@ const bookingState = {
   precio: null,
   calendarMonth: null,
   notice: null,
+  diasNoDisponibles: [],
 };
 
 function pad2(n) { return String(n).padStart(2, '0'); }
@@ -119,7 +120,7 @@ function goToStep(step) {
   document.getElementById('bookingBack').hidden = step === 1;
   document.getElementById('bookingNext').hidden = step === 5;
 
-  if (step === 2) renderCalendar();
+  if (step === 2) fetchDiasDisponibles();
   if (step === 3) fetchAvailability();
   if (step === 4 || step === 5) renderSummary();
 
@@ -166,6 +167,7 @@ function selectBoat(boatId) {
     bookingState.turno = null;
     bookingState.precio = null;
     bookingState.calendarMonth = null;
+    bookingState.diasNoDisponibles = [];
   }
   bookingState.boatId = boatId;
   markSelectedBoatCard();
@@ -192,6 +194,35 @@ function seasonBounds() {
 function shiftCalendarMonth(delta) {
   const m = bookingState.calendarMonth;
   bookingState.calendarMonth = new Date(m.getFullYear(), m.getMonth() + delta, 1);
+  bookingState.diasNoDisponibles = [];
+  fetchDiasDisponibles();
+}
+
+async function fetchDiasDisponibles() {
+  if (!bookingState.boatId) return;
+
+  if (!bookingState.calendarMonth) {
+    const { min } = seasonBounds();
+    const [y, mo] = min.split('-').map(Number);
+    bookingState.calendarMonth = new Date(y, mo - 1, 1);
+  }
+
+  renderCalendar();
+
+  const year = bookingState.calendarMonth.getFullYear();
+  const month = bookingState.calendarMonth.getMonth() + 1;
+
+  try {
+    const res = await fetch(
+      `${BOOKING_API}/api/dias-disponibles?barco_id=${bookingState.boatId}&year=${year}&month=${month}`
+    );
+    if (!res.ok) throw new Error('bad response');
+    const data = await res.json();
+    bookingState.diasNoDisponibles = data.diasNoDisponibles || [];
+  } catch {
+    bookingState.diasNoDisponibles = [];
+  }
+
   renderCalendar();
 }
 
@@ -242,7 +273,7 @@ function renderCalendar() {
     btn.type = 'button';
     btn.className = 'booking-cal-day';
     btn.textContent = String(day);
-    const disabled = iso < min || iso > max;
+    const disabled = iso < min || iso > max || bookingState.diasNoDisponibles.includes(iso);
     btn.disabled = disabled;
     if (iso === bookingState.date) btn.classList.add('selected');
     if (!disabled) btn.addEventListener('click', () => selectDate(iso));
