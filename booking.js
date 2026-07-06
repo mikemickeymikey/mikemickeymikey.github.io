@@ -47,6 +47,7 @@ const bookingState = {
   diasNoDisponibles: [],
   descuento: null,
   precioFinal: null,
+  descuentoCodigo: null,
 };
 
 function pad2(n) { return String(n).padStart(2, '0'); }
@@ -380,6 +381,7 @@ function selectSlot(turno, precio) {
   bookingState.precio = precio;
   bookingState.descuento = null;
   bookingState.precioFinal = null;
+  bookingState.descuentoCodigo = null;
   document.querySelectorAll('.booking-slot-btn').forEach(btn => {
     btn.classList.toggle('selected', btn.dataset.turno === turno);
   });
@@ -432,15 +434,18 @@ async function applyDescuento() {
     if (data.valido) {
       bookingState.descuento = data.porcentaje;
       bookingState.precioFinal = Math.round(bookingState.precio * (1 - data.porcentaje / 100));
+      bookingState.descuentoCodigo = code;
       errorEl.hidden = true;
     } else {
       bookingState.descuento = null;
       bookingState.precioFinal = null;
+      bookingState.descuentoCodigo = null;
       errorEl.hidden = false;
     }
   } catch {
     bookingState.descuento = null;
     bookingState.precioFinal = null;
+    bookingState.descuentoCodigo = null;
     errorEl.hidden = false;
   }
 
@@ -491,6 +496,7 @@ async function submitBooking() {
     fecha: bookingState.date,
     turno: bookingState.turno,
     precio_pagado: bookingState.precioFinal ?? bookingState.precio,
+    descuento_codigo: bookingState.descuentoCodigo ?? null,
     nombre: data.get('nombre'),
     email: data.get('email'),
     telefono: data.get('telefono'),
