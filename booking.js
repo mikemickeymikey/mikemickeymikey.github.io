@@ -21,6 +21,7 @@ const BOOKING_MSG = {
   networkError: { es: 'Error de conexión. Inténtalo de nuevo.', en: 'Connection error. Please try again.', ca: 'Error de connexió. Torna-ho a intentar.' },
   slotTaken: { es: 'Esta franja ya no está disponible.', en: 'This slot is no longer available.', ca: 'Aquesta franja ja no està disponible.' },
   retry: { es: 'Reintentar', en: 'Retry', ca: 'Torna-ho a intentar' },
+  discountApplied: { es: 'descuento aplicado', en: 'discount applied', ca: 'de descompte aplicat' },
 };
 
 const WEEKDAY_LABELS = {
@@ -44,6 +45,8 @@ const bookingState = {
   calendarMonth: null,
   notice: null,
   diasNoDisponibles: [],
+  descuento: null,
+  precioFinal: null,
 };
 
 function pad2(n) { return String(n).padStart(2, '0'); }
@@ -72,6 +75,10 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('bookingBack').addEventListener('click', () => goToStep(bookingState.step - 1));
   document.getElementById('bookingNext').addEventListener('click', handleNextClick);
   document.getElementById('bookingPayBtn').addEventListener('click', submitBooking);
+  document.getElementById('bookingDiscountBtn').addEventListener('click', applyDescuento);
+  document.getElementById('bookingDiscountCode').addEventListener('keydown', e => {
+    if (e.key === 'Enter') applyDescuento();
+  });
 
   if (typeof setLang === 'function') {
     const originalSetLang = setLang;
@@ -371,6 +378,8 @@ function renderSlots(turnos) {
 function selectSlot(turno, precio) {
   bookingState.turno = turno;
   bookingState.precio = precio;
+  bookingState.descuento = null;
+  bookingState.precioFinal = null;
   document.querySelectorAll('.booking-slot-btn').forEach(btn => {
     btn.classList.toggle('selected', btn.dataset.turno === turno);
   });
@@ -389,12 +398,53 @@ function renderSummary() {
   const slotLabel = bookingState.turno
     ? ((TURNO_LABELS[bookingState.turno] && TURNO_LABELS[bookingState.turno][lang]) || bookingState.turno)
     : '—';
-  const totalLabel = bookingState.precio != null ? `${bookingState.precio} €` : '—';
 
   document.querySelectorAll('.js-sum-boat').forEach(el => el.textContent = boat ? boat.name : '—');
   document.querySelectorAll('.js-sum-date').forEach(el => el.textContent = dateLabel);
   document.querySelectorAll('.js-sum-slot').forEach(el => el.textContent = slotLabel);
-  document.querySelectorAll('.js-sum-total').forEach(el => el.textContent = totalLabel);
+
+  if (bookingState.descuento && bookingState.precioFinal != null) {
+    const badge = `<small class="booking-discount-badge">−${bookingState.descuento}% ${BOOKING_MSG.discountApplied[lang]}</small>`;
+    document.querySelectorAll('.js-sum-total').forEach(el => {
+      el.innerHTML = `<s>${bookingState.precio} €</s> ${bookingState.precioFinal} €${badge}`;
+    });
+  } else {
+    const totalLabel = bookingState.precio != null ? `${bookingState.precio} €` : '—';
+    document.querySelectorAll('.js-sum-total').forEach(el => el.textContent = totalLabel);
+  }
+}
+
+async function applyDescuento() {
+  const input = document.getElementById('bookingDiscountCode');
+  const errorEl = document.getElementById('bookingDiscountError');
+  const code = input.value.trim();
+  if (!code) return;
+
+  errorEl.hidden = true;
+
+  try {
+    const res = await fetch(
+      `${BOOKING_API}/api/validar-descuento?codigo=${encodeURIComponent(code)}&fecha=${bookingState.date}`
+    );
+    if (!res.ok) throw new Error('bad response');
+    const data = await res.json();
+
+    if (data.valido) {
+      bookingState.descuento = data.porcentaje;
+      bookingState.precioFinal = Math.round(bookingState.precio * (1 - data.porcentaje / 100));
+      errorEl.hidden = true;
+    } else {
+      bookingState.descuento = null;
+      bookingState.precioFinal = null;
+      errorEl.hidden = false;
+    }
+  } catch {
+    bookingState.descuento = null;
+    bookingState.precioFinal = null;
+    errorEl.hidden = false;
+  }
+
+  renderSummary();
 }
 
 // ── STEP 5: PAYMENT ──────────────────────────────────────────────────────────
@@ -440,6 +490,7 @@ async function submitBooking() {
     barco_id: bookingState.boatId,
     fecha: bookingState.date,
     turno: bookingState.turno,
+    precio_pagado: bookingState.precioFinal ?? bookingState.precio,
     nombre: data.get('nombre'),
     email: data.get('email'),
     telefono: data.get('telefono'),

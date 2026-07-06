@@ -712,6 +712,17 @@
                         </select>
                     </label>
                 </form>
+                <div class="booking-discount" id="bookingDiscount">
+                    <label class="booking-discount-label"
+                        data-es="Código de descuento" data-en="Discount code" data-ca="Codi de descompte">Codi de descompte</label>
+                    <div class="booking-discount-row">
+                        <input type="text" id="bookingDiscountCode" class="booking-discount-input" autocomplete="off" spellcheck="false">
+                        <button type="button" id="bookingDiscountBtn" class="booking-discount-btn"
+                            data-es="Aplicar" data-en="Apply" data-ca="Aplicar">Aplicar</button>
+                    </div>
+                    <p class="booking-discount-error" id="bookingDiscountError" hidden
+                        data-es="Código no válido o expirado" data-en="Invalid or expired code" data-ca="Codi no vàlid o expirat">Codi no vàlid o expirat</p>
+                </div>
                 <div class="booking-summary" id="bookingSummary4">
                     <div class="booking-summary-row">
                         <span data-es="Barco" data-en="Boat" data-ca="Vaixell">Vaixell</span>
