@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-774075966"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-774075966');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eventos en Barco en Palamós | Mambo Boats — Corporativo, Despedidas & Mambo Club</title>
+<link rel="icon" type="image/png" href="img/icon.png">
+<meta name="description" content="Eventos en barco en Palamós. Actividades corporativas y team building, despedidas de soltero/a con patrón, música y copas. Costa Brava 2026.">
+<meta name="keywords" content="eventos barco Palamós, team building barco Costa Brava, despedida soltera barco Palamós, actividades corporativas barco Girona, alquiler barco evento empresa Costa Brava">
+<link rel="canonical" href="https://mamboboats.com/eventos">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="geo.region" content="ES-GI">
+<meta name="geo.placename" content="Palamós, Girona, Costa Brava">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mamboboats.com/eventos">
+<meta property="og:site_name" content="Mambo Boats">
+<meta property="og:title" content="Eventos en Barco en Palamós | Mambo Boats">
+<meta property="og:description" content="Corporativo, despedidas o algo que todavía no tiene nombre. El mar de la Costa Brava como escenario para lo que necesites.">
+<meta property="og:image" content="https://mamboboats.com/uploads/hero_flipped.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Eventos en Barco en Palamós | Mambo Boats">
+<meta name="twitter:description" content="Corporativo, despedidas o algo que todavía no tiene nombre. Costa Brava 2026.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- Bootstrap + FontAwesome -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<!-- Shared site CSS -->
+<link rel="stylesheet" href="style.css">
+
+<style>
+/* ── PAGE BASE ── */
+body { background: #05091F; color: #EAF1FF; overflow-x: hidden; }
+a { text-decoration: none; color: inherit; }
+*,*::before,*::after { box-sizing: border-box; }
+@keyframes fadeUp { from { opacity:0; transform:translateY(22px) } to { opacity:1; transform:translateY(0) } }
+@keyframes glow   { 0%,100% { text-shadow:0 0 40px rgba(212,167,60,.2) } 50% { text-shadow:0 0 80px rgba(212,167,60,.5),0 0 120px rgba(212,167,60,.2) } }
+
+/* ── HERO ── */
+.ev-hero { position:relative; height:72vh; min-height:480px; overflow:hidden; display:flex; align-items:flex-end; }
+.ev-hero img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 35%; }
+.ev-hero-overlay { position:absolute; inset:0; background:linear-gradient(to bottom,rgba(4,10,40,.15) 0%,rgba(4,10,40,.6) 50%,rgba(4,10,40,.98) 100%); }
+.ev-hero-content { position:relative; z-index:2; width:100%; padding: 0 clamp(20px,6vw,96px) clamp(48px,8vh,80px); }
+.ev-hero h1 { font-size:clamp(38px,7.5vw,88px); font-weight:800; color:white; line-height:1.0; letter-spacing:-.02em; margin-bottom:16px; animation:fadeUp .8s .3s both; }
+.ev-hero-sub { font-size:clamp(14px,1.5vw,17px); font-weight:300; color:rgba(255,255,255,.7); max-width:520px; line-height:1.7; margin-bottom:28px; animation:fadeUp .8s .45s both; }
+.ev-hero-ctas { display:flex; gap:12px; flex-wrap:wrap; animation:fadeUp .8s .6s both; }
+.ev-hero-ctas a { font-size:clamp(11px,1.2vw,13px); font-weight:500; letter-spacing:.08em; text-transform:uppercase; padding:12px 20px; border-radius:2px; transition:.2s; white-space:nowrap; }
+
+/* ── TWO-COL SECTIONS ── */
+.two-col { display:grid; grid-template-columns:1fr 1fr; }
+.ev-img-col { position:relative; overflow:hidden; min-height:520px; }
+.ev-img-col img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+.ev-text-col { padding: clamp(48px,7vw,80px) clamp(24px,5vw,64px); display:flex; flex-direction:column; justify-content:center; }
+.ev-eyebrow { font-size:10px; font-weight:600; letter-spacing:.24em; text-transform:uppercase; margin-bottom:14px; }
+.ev-h2 { font-size:clamp(26px,4vw,52px); font-weight:400; font-style:italic; color:#fff; line-height:1.1; margin-bottom:20px; }
+.ev-body { font-size:clamp(14px,1.2vw,15px); font-weight:300; color:rgba(248,244,236,.78); line-height:1.75; margin-bottom:18px; }
+
+/* ── BADGE ── */
+.ev-badge { position:absolute; padding:6px 14px; border-radius:2px; backdrop-filter:blur(6px); }
+.ev-badge span { font-size:10px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; }
+
+/* ── BULLETS ── */
+.ev-bullets { display:flex; flex-direction:column; gap:10px; margin-bottom:32px; }
+.ev-bullet { display:flex; align-items:center; gap:12px; font-size:clamp(13px,1.1vw,14px); font-weight:300; color:rgba(248,244,236,.85); }
+.ev-dot { width:6px; height:6px; border-radius:50%; background:#89B4FF; flex-shrink:0; }
+
+/* ── WA BUTTONS ── */
+.btn-ev-wa { display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:500; letter-spacing:.08em; text-transform:uppercase; padding:14px 24px; border-radius:2px; align-self:flex-start; transition:background .2s; }
+
+/* ── DESPEDIDAS ── */
+.desp-box { background:rgba(244,114,182,.06); border:1px solid rgba(244,114,182,.18); border-radius:10px; padding:22px 24px; margin-bottom:28px; }
+.desp-meta { display:flex; align-items:center; gap:16px; margin-bottom:28px; flex-wrap:wrap; }
+.desp-meta-item { display:flex; align-items:center; gap:6px; font-size:13px; font-weight:400; color:rgba(248,244,236,.7); }
+
+/* ── MAMBO CLUB ── */
+.club-section { position:relative; min-height:100vh; display:flex; align-items:center; justify-content:center; background:#000; overflow:hidden; }
+.club-inner { position:relative; z-index:2; text-align:center; padding:clamp(64px,10vw,120px) clamp(20px,6vw,96px); max-width:680px; margin:0 auto; width:100%; }
+.club-h2 { font-size:clamp(56px,12vw,128px); font-weight:800; color:white; line-height:.9; letter-spacing:-.03em; margin-bottom:8px; animation:glow 4s ease-in-out infinite; }
+.club-form-row { display:flex; width:100%; max-width:380px; margin:0 auto; }
+.club-input { flex:1; background:rgba(255,255,255,.05); border:1px solid rgba(212,167,60,.25); border-right:none; border-radius:2px 0 0 2px; padding:13px 16px; font-size:14px; font-weight:300; color:white; outline:none; font-family:'Montserrat',system-ui,sans-serif; }
+.club-input:focus { border-color:rgba(212,167,60,.6); }
+.club-submit { background:#D4A73C; color:#0A0600; font-family:'Montserrat',system-ui,sans-serif; font-size:12px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; padding:13px 20px; border-radius:0 2px 2px 0; border:none; cursor:pointer; white-space:nowrap; transition:background .2s; }
+.club-submit:hover { background:#C99030; }
+
+/* ── FOOTER ── */
+.ev-footer { background:#000; border-top:1px solid rgba(212,167,60,.1); padding:clamp(32px,4vw,48px) clamp(20px,5vw,80px); }
+.ev-footer a:hover { color:rgba(255,255,255,.8) !important; }
+
+/* ── RESPONSIVE ── */
+@media (max-width:860px) {
+  .two-col { grid-template-columns:1fr; }
+  .ev-img-col { min-height:280px; order:1 !important; }
+  .ev-text-col { order:2 !important; }
+  .club-form-row { flex-direction:column; max-width:100%; }
+  .club-input { border-right:1px solid rgba(212,167,60,.25); border-bottom:none; border-radius:2px 2px 0 0; }
+  .club-submit { border-radius:0 0 2px 2px; }
+}
+@media (max-width:480px) {
+  .ev-hero-ctas a { padding:10px 16px; }
+  .btn-ev-wa { width:100%; justify-content:center; }
+  .ev-text-col { padding:36px 20px; }
+}
+
+::-webkit-scrollbar { width:3px } ::-webkit-scrollbar-thumb { background:#89B4FF }
+</style>
+</head>
+<body>
+
+<!-- ══ HEADER (same as main site) ══ -->
+<header class="custom-header" id="mainHeader">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid px-4 px-lg-5">
+
+            <a class="navbar-brand" href="index.html">
+                <img class="logo" src="img/logo_mambo_trans.png" alt="Mambo Boats">
+            </a>
+
+            <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
+                <div class="navbar-nav align-items-center gap-3 gap-lg-4 mt-4 mt-lg-0">
+
+                    <a class="nav-link-custom" href="index.html#barcos"
+                        data-es="Barcos" data-en="Boats" data-ca="Embarcacions">Embarcacions</a>
+                    <a class="nav-link-custom" href="index.html#experiencias"
+                        data-es="Experiencias" data-en="Experiences" data-ca="Experiències">Experiències</a>
+                    <a class="nav-link-custom nav-link-pink" href="index.html#sunsets">Sunsets</a>
+                    <a class="nav-link-custom" href="eventos.html" style="color:#fff;"
+                        data-es="Eventos" data-en="Events" data-ca="Esdeveniments">Esdeveniments</a>
+                    <a class="nav-link-custom" href="index.html#faq">FAQ</a>
+
+                    <div class="lang-switch d-flex gap-1">
+                        <button onclick="setLang('ca')" class="lang-btn" id="btn-ca">CAT</button>
+                        <button onclick="setLang('en')" class="lang-btn" id="btn-en">EN</button>
+                        <button onclick="setLang('es')" class="lang-btn" id="btn-es">ESP</button>
+                    </div>
+
+                    <a href="tel:+34611490585" class="nav-phone">(+34) 611 49 05 85</a>
+
+                    <div class="d-flex flex-row align-items-center gap-3">
+                        <a href="https://www.instagram.com/mamboboats/" class="nav-icon" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@mamboboats" class="nav-icon" target="_blank">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+
+                    <a href="#corporativo" class="btn-reservar"
+                        data-es="Reservar →" data-en="Book →" data-ca="Reservar →">Reservar →</a>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- ══ HERO ══ -->
+<section class="ev-hero">
+    <img src="uploads/hero_flipped.jpg" alt="Eventos en barco Palamós Costa Brava — Mambo Boats">
+    <div class="ev-hero-overlay"></div>
+    <div class="ev-hero-content">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;animation:fadeUp .7s .15s both;">
+            <div style="width:22px;height:1px;background:rgba(255,255,255,.35);"></div>
+            <span style="font-size:10px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.55);">Mambo Boats · Palamós · Costa Brava</span>
+        </div>
+        <h1>
+            <span style="display:block;"
+                data-es="Eventos en barco" data-en="Events on a boat" data-ca="Esdeveniments en vaixell">Esdeveniments en vaixell</span>
+            <span style="display:block;font-weight:300;font-style:italic;"
+                data-es="a Palamós." data-en="in Palamós." data-ca="a Palamós.">a Palamós.</span>
+        </h1>
+        <p class="ev-hero-sub"
+            data-es="Corporativo, despedidas o algo que todavía no tiene nombre. El mar de la Costa Brava como escenario para lo que necesites."
+            data-en="Corporate events, hen &amp; stag dos or something that doesn't have a name yet. The Costa Brava sea as the backdrop for whatever you need."
+            data-ca="Corporatiu, comiat de solter/a o alguna cosa que encara no té nom. El mar de la Costa Brava com a escenari per al que necessitis.">Corporatiu, comiat de solter/a o alguna cosa que encara no té nom. El mar de la Costa Brava com a escenari per al que necessitis.</p>
+        <div class="ev-hero-ctas">
+            <a href="#corporativo" style="color:white;background:#2B2882;"
+                data-es="Corporativo" data-en="Corporate" data-ca="Corporatiu">Corporatiu</a>
+            <a href="#despedidas" style="color:white;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.35);"
+                data-es="Despedidas" data-en="Hen &amp; Stag" data-ca="Comiat de solters">Comiat de solters</a>
+            <a href="#mambo-club" style="color:#D4A73C;background:rgba(212,167,60,.1);border:1.5px solid rgba(212,167,60,.35);">Mambo Club ✦</a>
+        </div>
+    </div>
+</section>
+
+<!-- ══ CORPORATIVO ══ -->
+<section id="corporativo" style="background:#05091F;">
+    <div class="two-col">
+        <div class="ev-img-col" style="order:1;">
+            <img src="uploads/DJI_20260522194845_0688_D.jpg" alt="Actividades corporativas en barco Palamós — team building Costa Brava" style="object-position:center 42%;filter:saturate(.9);">
+            <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(5,9,31,0) 60%,rgba(5,9,31,.85) 100%);"></div>
+            <div class="ev-badge" style="top:28px;left:28px;background:rgba(43,40,130,.85);">
+                <span style="color:#89B4FF;"
+                    data-es="Corporativo" data-en="Corporate" data-ca="Corporatiu">Corporatiu</span>
+            </div>
+        </div>
+        <div class="ev-text-col" style="order:2;">
+            <p class="ev-eyebrow" style="color:#A09EE8;"
+                data-es="Empresas · Team Building · Networking"
+                data-en="Companies · Team Building · Networking"
+                data-ca="Empreses · Team Building · Networking">Empreses · Team Building · Networking</p>
+            <h2 class="ev-h2"
+                data-es="El mar como espacio de trabajo."
+                data-en="The sea as your workspace."
+                data-ca="El mar com a espai de treball.">El mar com a espai de treball.</h2>
+            <p class="ev-body"
+                data-es="Reuniones en la cubierta, sesiones de team building entre calas, networking con el horizonte de fondo. El barco elimina jerarquías, rompe el hielo y genera conversaciones que ninguna sala de reuniones consigue."
+                data-en="Deck meetings, team building sessions between coves, networking with the horizon as backdrop. The boat breaks hierarchies, breaks the ice and sparks conversations no meeting room can match."
+                data-ca="Reunions a coberta, sessions de team building entre cales, networking amb l'horitzó de fons. El vaixell elimina jerarquies, trenca el gel i genera converses que cap sala de reunions aconsegueix.">Reunions a coberta, sessions de team building entre cales, networking amb l'horitzó de fons. El vaixell elimina jerarquies, trenca el gel i genera converses que cap sala de reunions aconsegueix.</p>
+            <p class="ev-body"
+                data-es="Diseñamos el plan con vosotros: ruta, duración, catering, actividades a bordo. Patrón siempre incluido. Hasta 10 personas con el Faeton 980 o hasta 12 con la Capelli Tempest 625."
+                data-en="We design the plan with you: route, duration, catering, on-board activities. Skipper always included. Up to 10 people with the Faeton 980 or up to 12 with the Capelli Tempest 625."
+                data-ca="Dissenyem el pla amb vosaltres: ruta, durada, càtering, activitats a bord. Patró sempre inclòs. Fins a 10 persones amb el Faeton 980 o fins a 12 amb la Capelli Tempest 625.">Dissenyem el pla amb vosaltres: ruta, durada, càtering, activitats a bord. Patró sempre inclòs. Fins a 10 persones amb el Faeton 980 o fins a 12 amb la Capelli Tempest 625.</p>
+            <div class="ev-bullets">
+                <div class="ev-bullet"><div class="ev-dot"></div><span
+                    data-es="Team building y dinámicas a bordo"
+                    data-en="Team building &amp; on-board activities"
+                    data-ca="Team building i dinàmiques a bord">Team building i dinàmiques a bord</span></div>
+                <div class="ev-bullet"><div class="ev-dot"></div><span
+                    data-es="Networking y reuniones en el mar"
+                    data-en="Networking &amp; meetings at sea"
+                    data-ca="Networking i reunions al mar">Networking i reunions al mar</span></div>
+                <div class="ev-bullet"><div class="ev-dot"></div><span
+                    data-es="Celebraciones de empresa y kick-offs"
+                    data-en="Company celebrations &amp; kick-offs"
+                    data-ca="Celebracions d'empresa i kick-offs">Celebracions d'empresa i kick-offs</span></div>
+                <div class="ev-bullet"><div class="ev-dot"></div><span
+                    data-es="Patrón incluido · Catering a medida"
+                    data-en="Skipper included · Custom catering"
+                    data-ca="Patró inclòs · Càtering a mida">Patró inclòs · Càtering a mida</span></div>
+                <div class="ev-bullet"><div class="ev-dot"></div><span
+                    data-es="Hasta 12 personas · Ruta adaptable"
+                    data-en="Up to 12 people · Flexible route"
+                    data-ca="Fins a 12 persones · Ruta adaptable">Fins a 12 persones · Ruta adaptable</span></div>
+            </div>
+            <a href="https://wa.me/34611490585?text=Hola%2C%20quiero%20organizar%20un%20evento%20corporativo%20en%20barco%20en%20Palam%C3%B3s.%20%C2%BFPodemos%20hablar%3F" target="_blank" rel="noopener" class="btn-ev-wa" style="color:white;background:#25D366;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                <span data-es="Hablar con el equipo" data-en="Talk to the team" data-ca="Parlar amb l'equip">Parlar amb l'equip</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ══ DESPEDIDAS ══ -->
+<section id="despedidas" style="background:#080D32;">
+    <div class="two-col">
+        <div class="ev-text-col" style="order:2;">
+            <p class="ev-eyebrow" style="color:#F472B6;"
+                data-es="Despedidas · El plan definitivo"
+                data-en="Hen &amp; Stag · The ultimate plan"
+                data-ca="Comiat de solters · El pla definitiu">Comiat de solters · El pla definitiu</p>
+            <h2 class="ev-h2"
+                data-es="La despedida que no olvidaréis."
+                data-en="The send-off you'll never forget."
+                data-ca="El comiat que no oblidareu.">El comiat que no oblidareu.</h2>
+            <p class="ev-body"
+                data-es="Diseñado para que el protagonista del día lo recuerde siempre — por las razones correctas. Patrón a bordo, música, copas y la Costa Brava de escenario. Vosotros solo disfrutáis."
+                data-en="Designed so the star of the day always remembers it — for the right reasons. Skipper on board, music, drinks and the Costa Brava as backdrop. You just enjoy."
+                data-ca="Dissenyat perquè el protagonista del dia ho recordi sempre — per les raons correctes. Patró a bord, música, copes i la Costa Brava d'escenari. Vosaltres només gaudiu.">Dissenyat perquè el protagonista del dia ho recordi sempre — per les raons correctes. Patró a bord, música, copes i la Costa Brava d'escenari. Vosaltres només gaudiu.</p>
+            <p class="ev-body" style="margin-bottom:28px;"
+                data-es="Personalizamos cada detalle: ruta, duración, complementos. El barco es vuestro — sin compartirlo con nadie más."
+                data-en="We personalise every detail: route, duration, extras. The boat is yours — not shared with anyone else."
+                data-ca="Personalitzem cada detall: ruta, durada, complements. El vaixell és vostre — sense compartir-lo amb ningú més.">Personalitzem cada detall: ruta, durada, complements. El vaixell és vostre — sense compartir-lo amb ningú més.</p>
+
+            <div class="desp-box">
+                <p style="font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#F472B6;margin-bottom:16px;"
+                    data-es="Qué incluye" data-en="What's included" data-ca="Què inclou">Què inclou</p>
+                <div style="display:flex;flex-direction:column;gap:10px;">
+                    <div style="display:flex;align-items:center;gap:12px;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <span style="font-size:clamp(13px,1.1vw,14px);font-weight:300;color:rgba(248,244,236,.9);"
+                            data-es="Patrón profesional a bordo todo el día"
+                            data-en="Professional skipper on board all day"
+                            data-ca="Patró professional a bord tot el dia">Patró professional a bord tot el dia</span>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:12px;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <span style="font-size:clamp(13px,1.1vw,14px);font-weight:300;color:rgba(248,244,236,.9);"
+                            data-es="Música a bordo (altavoz bluetooth)"
+                            data-en="Music on board (bluetooth speaker)"
+                            data-ca="Música a bord (altaveu bluetooth)">Música a bord (altaveu bluetooth)</span>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:12px;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <span style="font-size:clamp(13px,1.1vw,14px);font-weight:300;color:rgba(248,244,236,.9);"
+                            data-es="Pack de copas — cava, cervezas, refrescos"
+                            data-en="Drinks pack — cava, beers, soft drinks"
+                            data-ca="Pack de copes — cava, cerveses, refrescos">Pack de copes — cava, cerveses, refrescos</span>
+                    </div>
+                    <div style="display:flex;align-items:flex-start;gap:12px;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F472B6" stroke-width="2" stroke-dasharray="3,2" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <span style="font-size:clamp(13px,1.1vw,14px);font-weight:300;color:rgba(248,244,236,.65);"
+                            data-es="Pack de camisetas personalizadas"
+                            data-en="Personalised T-shirt pack"
+                            data-ca="Pack de samarretes personalitzades">Pack de samarretes personalitzades</span>
+                        <span style="font-size:12px;color:rgba(244,114,182,.7);flex-shrink:0;"
+                            data-es="(opcional)" data-en="(optional)" data-ca="(opcional)">(opcional)</span>
+                    </div>
+                    <div style="display:flex;align-items:flex-start;gap:12px;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F472B6" stroke-width="2" stroke-dasharray="3,2" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        <span style="font-size:clamp(13px,1.1vw,14px);font-weight:300;color:rgba(248,244,236,.65);"
+                            data-es="Cámara instantánea Polaroid"
+                            data-en="Polaroid instant camera"
+                            data-ca="Càmera instantània Polaroid">Càmera instantània Polaroid</span>
+                        <span style="font-size:12px;color:rgba(244,114,182,.7);flex-shrink:0;"
+                            data-es="(opcional)" data-en="(optional)" data-ca="(opcional)">(opcional)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="desp-meta">
+                <div class="desp-meta-item">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(244,114,182,.7)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span data-es="4 – 8 horas" data-en="4 – 8 hours" data-ca="4 – 8 hores">4 – 8 hores</span>
+                </div>
+                <div class="desp-meta-item">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(244,114,182,.7)" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 00-3-3.87"></path><path d="M16 3.13a4 4 0 010 7.75"></path></svg>
+                    <span data-es="Hasta 12 personas" data-en="Up to 12 people" data-ca="Fins a 12 persones">Fins a 12 persones</span>
+                </div>
+            </div>
+
+            <a href="https://wa.me/34611490585?text=Hola%2C%20quiero%20organizar%20una%20despedida%20en%20barco%20en%20Palam%C3%B3s.%20%C2%BFMe%20dais%20info%3F" target="_blank" rel="noopener" class="btn-ev-wa" style="color:#0A0600;background:#E879A0;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                <span data-es="Montar mi despedida" data-en="Plan my send-off" data-ca="Muntar el meu comiat">Muntar el meu comiat</span>
+            </a>
+        </div>
+        <div class="ev-img-col" style="order:1;">
+            <img src="uploads/pasted-1781608238265-0.png" alt="Despedida de soltera en barco Palamós" style="object-position:50% 40%;">
+            <div style="position:absolute;inset:0;background:linear-gradient(to left,rgba(8,13,50,0) 60%,rgba(8,13,50,.8) 100%);"></div>
+            <div class="ev-badge" style="top:28px;right:28px;background:rgba(228,121,160,.85);">
+                <span style="color:#0A0600;"
+                    data-es="Despedidas" data-en="Hen &amp; Stag" data-ca="Comiat de solters">Comiat de solters</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══ MAMBO CLUB ══ -->
+<section id="mambo-club" class="club-section">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 60%,rgba(212,167,60,.06) 0%,rgba(0,0,0,0) 70%);pointer-events:none;"></div>
+    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(600px,90vw);height:min(600px,90vw);border-radius:50%;border:1px solid rgba(212,167,60,.06);pointer-events:none;"></div>
+
+    <div class="club-inner">
+        <p style="font-size:10px;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:rgba(212,167,60,.5);margin-bottom:32px;"
+            data-es="Próximamente" data-en="Coming soon" data-ca="Aviat">Aviat</p>
+        <h2 class="club-h2">Mambo<br>Club.</h2>
+        <div style="width:32px;height:1px;background:rgba(212,167,60,.4);margin:32px auto;"></div>
+        <p style="font-size:clamp(16px,2vw,20px);font-weight:300;font-style:italic;color:rgba(255,255,255,.7);line-height:1.6;margin-bottom:16px;"
+            data-es="Algo está pasando en el agua."
+            data-en="Something is happening on the water."
+            data-ca="Alguna cosa està passant a l'aigua.">Alguna cosa està passant a l'aigua.</p>
+        <p style="font-size:14px;font-weight:300;color:rgba(255,255,255,.42);line-height:1.8;max-width:420px;margin:0 auto 48px;"
+            data-es="No es una excursión. No es una experiencia. Todavía no podemos decirte qué es — pero si estás leyendo esto, ya te lo imaginas. Plazas muy limitadas."
+            data-en="It's not an excursion. It's not an experience. We can't tell you what it is yet — but if you're reading this, you can already imagine it. Very limited spots."
+            data-ca="No és una excursió. No és una experiència. Encara no et podem dir què és — però si estàs llegint això, ja t'ho imagines. Places molt limitades.">No és una excursió. No és una experiència. Encara no et podem dir què és — però si estàs llegint això, ja t'ho imagines. Places molt limitades.</p>
+
+        <div id="club-success" style="display:none;flex-direction:column;align-items:center;gap:12px;">
+            <div style="width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(212,167,60,.5);display:flex;align-items:center;justify-content:center;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D4A73C" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <p style="font-size:14px;font-weight:400;color:rgba(212,167,60,.9);"
+                data-es="Ya estás en la lista. Serás el primero en saberlo."
+                data-en="You're on the list. You'll be the first to know."
+                data-ca="Ja ets a la llista. Seràs el primer a saber-ho.">Ja ets a la llista. Seràs el primer a saber-ho.</p>
+        </div>
+        <div id="club-form" style="display:flex;flex-direction:column;align-items:center;gap:14px;">
+            <p style="font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:rgba(212,167,60,.55);"
+                data-es="Lista de espera" data-en="Waitlist" data-ca="Llista d'espera">Llista d'espera</p>
+            <div class="club-form-row">
+                <input id="club-email" type="email" placeholder="tu@email.com" class="club-input">
+                <button onclick="submitClub()" class="club-submit"
+                    data-es="Apuntarme →" data-en="Sign me up →" data-ca="Apuntar-me →">Apuntar-me →</button>
+            </div>
+            <p style="font-size:11px;font-weight:300;color:rgba(255,255,255,.25);"
+                data-es="Sin spam. Solo cuando sea el momento."
+                data-en="No spam. Only when the time comes."
+                data-ca="Sense spam. Només quan sigui el moment.">Sense spam. Només quan sigui el moment.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="ev-footer">
+    <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;">
+        <div style="display:flex;align-items:center;gap:12px;">
+            <img src="img/logo_mambo_trans.png" alt="Mambo Boats" style="height:40px;width:auto;filter:brightness(1.3);">
+            <p style="font-size:12px;font-weight:300;color:rgba(255,255,255,.25);margin:0;">Port de Palamós · 17230 Girona</p>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:center;">
+            <a href="index.html" style="font-size:12px;font-weight:300;color:rgba(255,255,255,.35);transition:color .2s;"
+                data-es="Inicio" data-en="Home" data-ca="Inici">Inici</a>
+            <a href="index.html#barcos" style="font-size:12px;font-weight:300;color:rgba(255,255,255,.35);transition:color .2s;"
+                data-es="Barcos" data-en="Boats" data-ca="Embarcacions">Embarcacions</a>
+            <a href="index.html#experiencias" style="font-size:12px;font-weight:300;color:rgba(255,255,255,.35);transition:color .2s;"
+                data-es="Experiencias" data-en="Experiences" data-ca="Experiències">Experiències</a>
+            <a href="eventos.html" style="font-size:12px;font-weight:300;color:rgba(255,255,255,.35);transition:color .2s;"
+                data-es="Eventos" data-en="Events" data-ca="Esdeveniments">Esdeveniments</a>
+        </div>
+    </div>
+</footer>
+
+<!-- WhatsApp FAB -->
+<a href="https://wa.me/34611490585?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20eventos%20en%20barco%20en%20Palam%C3%B3s." target="_blank" rel="noopener" aria-label="WhatsApp" class="whatsapp-btn">
+    <i class="fab fa-whatsapp" style="font-size:26px;"></i>
+</a>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+<script>
+    if (localStorage.getItem('mb_club_signup')) {
+        document.getElementById('club-form').style.display = 'none';
+        document.getElementById('club-success').style.display = 'flex';
+    }
+    function submitClub() {
+        var val = document.getElementById('club-email').value.trim();
+        if (!val || !val.includes('@')) return;
+        localStorage.setItem('mb_club_signup', val);
+        document.getElementById('club-form').style.display = 'none';
+        document.getElementById('club-success').style.display = 'flex';
+    }
+    document.getElementById('club-email').addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') submitClub();
+    });
+</script>
+</body>
+</html>
